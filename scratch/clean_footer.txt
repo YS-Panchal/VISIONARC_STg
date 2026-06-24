@@ -1,0 +1,106 @@
+<section class="section u-overflow-visible">
+  <div class="w-layout-blockcontainer container_full u-padding-72 w-container">
+        <h5 class="block_title">
+          Follow us on
+        </h5>
+        <ul role="list" class="footer_social-links w-list-unstyled">
+          <li class="footer_social-button">
+            <a href="https://www.linkedin.com/company/vision-architecture-india" class="footer_social-link w-inline-block">
+              <circle cx="25" cy="25" r="24.25" stroke="currentColor" stroke-width="1.5">
+              </circle>
+            </a>
+          </li>
+          <li class="footer_social-button">
+            <a href="https://www.instagram.com/visionarchitecture.in/" class="footer_social-link w-inline-block">
+              <circle cx="25" cy="25" r="24.25" stroke="currentColor" stroke-width="1.5">
+              </circle>
+            </a>
+          </li>
+        </ul>
+      </div>
+        <h5 class="block_title">
+          Office
+        </h5>
+        <p class="footer_paragraph u-text-balance">
+          Vision Architecture Studio, Ahmedabad, Gujarat, India
+        </p>
+      </div>
+        <h5 class="block_title">
+          Contacts
+        </h5>
+        <div class="w-layout-vflex block_inner_wrapper">
+          <p class="footer_paragraph">
+            info.visionarchitecture@gmail.com
+            <br>
+            </br>
+          </p>
+          <a href="#" class="whatsapp_wrapper w-inline-block">
+            <p class="footer_paragraph">
+              +91 96876 88373 | +91 73592 19598
+            </p>
+          </a>
+        </div>
+      </div>
+        <a href="#" class="google_rating_link w-inline-block">
+        </a>
+      </div>
+        <a href="#" class="british-recuritment-awards-link w-inline-block">
+        </a>
+      </div>
+        <div class="w-layout-hflex data_security_wrapper">
+        </div>
+      </div>
+      <div class="footer-background">
+      </div>
+    </div>
+    <div class="space">
+    </div>
+        <h6 class="footer_link_text">
+          About
+        </h6>
+      </a>
+        <h6 class="footer_link_text">
+          Speciality
+        </h6>
+      </a>
+        <h6 class="footer_link_text">
+          Team
+        </h6>
+      </a>
+    </div>
+    <div class="space-small">
+    </div>
+        <h6 class="footer_link_text">
+          Privacy Policy
+        </h6>
+      </a>
+        <h6 class="footer_link_text">
+          Cookie Policy
+        </h6>
+      </a>
+        <h6 class="footer_link_text">
+          Terms of Service
+        </h6>
+      </a>
+    </div>
+    <div class="space_mid">
+    </div>
+      © 2025 Vision Architecture.
+      <br>
+      </br>
+      All Rights Reserved.
+    </h6>
+    <div class="space_largish">
+    </div>
+    <div class="cut-wrapper">
+      <div class="footer-wrapper">
+        <h5 class="footer-h5">
+          We Are
+        </h5>
+        <h1 class="footer-title">
+          Vision Architecture
+        </h1>
+      </div>
+    </div>
+  </div>
+</section>

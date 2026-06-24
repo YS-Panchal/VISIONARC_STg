@@ -3,31 +3,129 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  /* Colors — exact from sataya-webflow.css :root */
+  --white: #f9f9f9;
+  --black: #1d2025;
+  --charcoal-blue: #2f3440;
+  --dark-gray: var(--black);
+  --matte: #2f2f2f;
+  --primary: whitesmoke;
+  --border-radius: 2rem;
+  --light-gray: #eee;
+  --matte-20: #2f2f2f33;
+  --transparent: #0000;
+  --full-border-radius: 10rem;
+
+  /* Legacy aliases */
+  --color-primary: #2f3440;
+  --color-accent: #8B2635;
+  --color-background: #f9f9f9;
+  
+  /* Animation Timing */
+  --duration-fast: 0.3s;
+  --duration-normal: 0.6s;
+  --duration-slow: 1.2s;
+  
+  /* Easing — extracted from reference */
+  --ease-power2-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-expo-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-custom: cubic-bezier(0.76, 0, 0.24, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto; /* Lenis handles smooth scroll */
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--color-background);
+  color: var(--color-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* Headings hierarchy — exact from reference lines 312-317 */
+h1, h2, h3, h4 {
+  font-family: var(--font-telegrafico), 'Telegrafico', sans-serif;
+  font-weight: bold;
+}
+
+h5, h6 {
+  font-family: 'Satoshi', sans-serif;
+  font-weight: bold;
+}
+
+/* Custom Scrollbar — exact from reference lines 16-22 */
+body::-webkit-scrollbar {
+  width: 5px;
+  background: #f9f9f9;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #2f3440;
+}
+
+/* Selection — exact from reference lines 23-30 */
+::-moz-selection {
+  background: none;
+  color: #2f3440;
+}
+
+::selection {
+  background: none;
+  color: #2f3440;
+}
+
+/* Text balance utility — from reference line 318 */
+.u-text-balance {
+  text-wrap: balance;
+}
+
+/* Hide video controls — from reference lines 536-549 */
+.hide-controls::-webkit-media-controls-panel {
+  opacity: 0;
+}
+
+.hide-controls {
+  width: 100%;
+  object-position: center;
+  object-fit: cover;
+}
+
+.hide-controls::-webkit-media-controls-play-button,
+.hide-controls::-webkit-media-controls-start-playback-button {
+  display: none !important;
+}
+
+/* Lenis styles */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Navigation Menu initial state */
+.nav-menu {
+  display: none;
+  transform: translateY(-100%);
 }
