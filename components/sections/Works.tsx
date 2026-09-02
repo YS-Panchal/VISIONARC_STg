@@ -18,7 +18,7 @@ const worksData = [
     id: '_02',
     title: 'Interior Design',
     tags: ['Luxury Residences', 'Corporate Offices', 'Penthouses'],
-    image: '/images/Projects/PROJECTS WEBP/Interior Design/MR DIPESH JHAVERI PRIVATE RESIDENCE/05_29 - Photo_result.webp',
+    image: '/images/Projects/PROJECTS WEBP/Interior Design/MR DIPESH JHAVERI PRIVATE RESIDENCE/vision-architecture-dipesh-jhaveri-double-height-luxury-residence-ahmedabad-17.webp',
     href: '/interior-design',
   },
   {

@@ -8,7 +8,7 @@ export const metadata = {
 const projects = [
   {
     "images": [
-      "/images/Projects/PROJECTS WEBP/Interior Design/MR DIPESH JHAVERI PRIVATE RESIDENCE/05_29 - Photo_result.webp",
+      "/images/Projects/PROJECTS WEBP/Interior Design/MR DIPESH JHAVERI PRIVATE RESIDENCE/vision-architecture-dipesh-jhaveri-double-height-luxury-residence-ahmedabad-17.webp",
       "/images/Projects/PROJECTS WEBP/Interior Design/MR DIPESH JHAVERI PRIVATE RESIDENCE/vision-architecture-dipesh-jhaveri-double-height-luxury-residence-ahmedabad-01.webp",
       "/images/Projects/PROJECTS WEBP/Interior Design/MR DIPESH JHAVERI PRIVATE RESIDENCE/vision-architecture-dipesh-jhaveri-double-height-luxury-residence-ahmedabad-02.webp",
       "/images/Projects/PROJECTS WEBP/Interior Design/MR DIPESH JHAVERI PRIVATE RESIDENCE/vision-architecture-dipesh-jhaveri-double-height-luxury-residence-ahmedabad-03.webp",
@@ -150,7 +150,7 @@ export default function InteriorDesign() {
     <SpecialityPage
       heroTitle="Interior Design"
       heroSubtitle="Transforming spaces through curated palettes, refined detailing, and bespoke craftsmanship — balancing form, function, and emotion."
-      heroBackground="/images/Projects/PROJECTS WEBP/Interior Design/MR DIPESH JHAVERI PRIVATE RESIDENCE/05_29 - Photo_result.webp"
+      heroBackground="/images/Projects/PROJECTS WEBP/Interior Design/MR DIPESH JHAVERI PRIVATE RESIDENCE/vision-architecture-dipesh-jhaveri-double-height-luxury-residence-ahmedabad-17.webp"
       introHeading="Elevated Interior Architecture"
       introParagraphs={[
         "Our interior design approach combines spatial flow, material warmth, and lighting design to create environments that feel luxury, personal, and enduring.",
