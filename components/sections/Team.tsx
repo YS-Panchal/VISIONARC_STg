@@ -7,15 +7,15 @@ const linkedInSvg = `<path d="M11.6004 20.9739H8.87928V12.2113H11.6004V20.9739ZM
 const teamData = [
   {
     name: 'Khantil Panchal',
-    role: 'Principal Architect',
+    role: 'Co-Founder | Principal Architect',
     imageClass: 'khantil',
-    href: '/leadership'
+    href: '/#contact'
   },
   {
     name: 'Surbhi Panchal',
-    role: 'Interior Design Principal',
+    role: 'Co-Founder | Principal Designer',
     imageClass: 'surbhi',
-    href: '/leadership'
+    href: '/#contact'
   }
 ];
 
@@ -51,7 +51,7 @@ export default function Team() {
               textTransform: 'uppercase',
               textAlign: 'center'
             }}>
-              Our<br />Leadership Team
+              Leadership Team
             </h2>
           </div>
 
@@ -114,7 +114,7 @@ export default function Team() {
           align-items: flex-start;
           min-width: 19.4vw;
           max-width: 19.4vw;
-          min-height: 22.2vw;
+          min-height: 23.2vw;
           max-height: 22.2vw;
           transition: all .425s;
           display: flex;
@@ -126,11 +126,11 @@ export default function Team() {
         }
 
         .team_image_wrapper.khantil {
-          background-image: url('/images/68d1ae25a28852f3a85bbed6_cta-image-1-p-500.webp');
+          background-image: url('/images/KP WI_result.jpg ');
         }
 
         .team_image_wrapper.surbhi {
-          background-image: url('/images/68d1ae25f70e8cc0e52db1fb_cta-image-2-p-1600.webp');
+          background-image: url('/images/SP WI_result.jpg');
         }
 
         .team_social_flex_box {

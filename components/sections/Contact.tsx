@@ -11,7 +11,7 @@ export default function Contact() {
           paddingLeft: '5%',
           paddingRight: '5%'
         }}>
-          <div style={{ minHeight: '8.89vw' }}></div>
+
           <div style={{ minHeight: '4.44vw' }}></div>
           
           <div className="contact_us_wrapper" style={{
@@ -34,7 +34,6 @@ export default function Contact() {
                 marginBottom: '2rem'
               }}>
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                  <h6 style={{ margin: 0, textTransform: 'uppercase', letterSpacing: '0.1em' }}>get in touch</h6>
                 </div>
                 <h2 className="title_h2" style={{
                   fontSize: 'clamp(2.5rem, 5.55vw, 5rem)',
@@ -46,7 +45,12 @@ export default function Contact() {
                 }}>Let&apos;s Talk</h2>
               </div>
               
-              <div className="contact-us-form">
+              <div className="contact-us-form" style={{
+                background: 'white',
+                borderRadius: '1.25rem',
+                padding: 'clamp(1.5rem, 3vw, 2.5rem)',
+                boxShadow: '0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)'
+              }}>
                 <form id="wf-form-Contact-Us-Email-Form" name="wf-form-Contact-Us-Email-Form" method="get" className="contact-us-block-wrapper">
                   <div className="contact-us-flex-container">
                     <div className="contact-us-wrapper-half">
@@ -75,10 +79,10 @@ export default function Contact() {
                         <label htmlFor="Service" className="field_label">Service</label>
                         <div className="booking-select-field" style={{ width: '100%' }}>
                           <select id="Service" name="Service" required className="select">
-                            <option value="">Select a Service</option>
-                            <option value="architecture">Architecture &amp; Design</option>
+                            <option value="architecture">Architecture</option>
                             <option value="interior">Interior Design</option>
-                            <option value="landscape">Landscape &amp; Urban Planning</option>
+                            <option value="hospitality">Hospitality Architecture</option>
+                            <option value="renovation">Renovation &amp; Planning</option>
                             <option value="other">Other</option>
                           </select>
                         </div>
@@ -90,18 +94,19 @@ export default function Contact() {
                     <label htmlFor="Customer-Message" className="field_label">Message Us</label>
                     <textarea id="Customer-Message" name="Customer-Message" maxLength={5000} placeholder="Message" required className="text-area"></textarea>
                     <div style={{ minHeight: '1rem' }}></div>
-                    <input type="submit" className="button" style={{
+                    <input type="submit" className="button submit-button" style={{
                       backgroundColor: 'var(--charcoal-blue)',
                       color: '#fff',
                       letterSpacing: '.07vw',
                       textTransform: 'uppercase',
                       cursor: 'pointer',
-                      border: '1px solid #000',
-                      borderRadius: '6.25rem',
-                      padding: '.78vw 2.22vw',
+                      border: 'none',
+                      borderRadius: '0.75rem',
+                      padding: '1rem 2.5rem',
                       fontWeight: 400,
                       width: '100%',
-                      marginTop: '1rem'
+                      marginTop: '1rem',
+                      transition: 'all 0.3s ease'
                     }} value="Send Request" />
                   </div>
                 </form>
@@ -139,54 +144,57 @@ export default function Contact() {
         }
 
         .field_label {
-          color: #2f3440;
-          letter-spacing: .05em;
+          color: #6b7280;
+          letter-spacing: 0.08em;
           text-transform: uppercase;
-          margin-bottom: 0.5rem;
+          margin-bottom: 0.625rem;
           font-family: sans-serif;
-          font-size: .75rem;
+          font-size: 0.7rem;
           font-weight: 500;
         }
 
         .booking-text-field {
-          border: .0625rem solid transparent;
-          background-color: #f5f5f5;
+          border: 1px solid rgba(47, 52, 64, 0.08);
+          background-color: #f7f6f3;
           color: #2f3440;
-          border-radius: 0;
+          border-radius: 0.75rem;
           width: 100%;
           min-height: 7svh;
-          padding-left: 1rem;
+          padding: 0.875rem 1.25rem;
           font-size: 1rem;
           font-weight: 400;
           box-sizing: border-box;
           outline: none;
+          transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .booking-text-field::placeholder {
-          color: #1a1a1a;
-          opacity: 0.6;
+          color: rgba(47, 52, 64, 0.35);
         }
         
         .booking-text-field:focus {
-           border-color: #2f3440;
+           border-color: rgba(47, 52, 64, 0.25);
+           box-shadow: 0 0 0 3px rgba(47, 52, 64, 0.06);
         }
 
         .select {
-          background-color: #f5f5f5;
+          background-color: #f7f6f3;
           color: #2f3440;
-          padding: 1rem;
-          border-radius: 0;
-          border: .0625rem solid transparent;
+          padding: 0.875rem 1.25rem;
+          border-radius: 0.75rem;
+          border: 1px solid rgba(47, 52, 64, 0.08);
           width: 100%;
           min-height: 7svh;
           font-size: 1rem;
           appearance: none;
           outline: none;
           box-sizing: border-box;
+          transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
         
         .select:focus {
-           border-color: #2f3440;
+           border-color: rgba(47, 52, 64, 0.25);
+           box-shadow: 0 0 0 3px rgba(47, 52, 64, 0.06);
         }
 
         .message-title-field-wrapper {
@@ -198,27 +206,34 @@ export default function Contact() {
         }
 
         .text-area {
-          border: .0625rem solid transparent;
-          background-color: #f5f5f5;
+          border: 1px solid rgba(47, 52, 64, 0.08);
+          background-color: #f7f6f3;
           color: #2f3440;
-          border-radius: .3125rem;
+          border-radius: 0.75rem;
           min-height: 15svh;
           width: 100%;
-          padding: 1rem;
+          padding: 0.875rem 1.25rem;
           font-size: 1rem;
           font-weight: 400;
           box-sizing: border-box;
           outline: none;
           resize: vertical;
+          transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .text-area::placeholder {
-          color: #1a1a1a;
-          opacity: 0.6;
+          color: rgba(47, 52, 64, 0.35);
         }
         
         .text-area:focus {
-           border-color: #2f3440;
+           border-color: rgba(47, 52, 64, 0.25);
+           box-shadow: 0 0 0 3px rgba(47, 52, 64, 0.06);
+        }
+
+        .submit-button:hover {
+          background-color: #3d4350 !important;
+          transform: translateY(-1px);
+          box-shadow: 0 4px 12px rgba(47, 52, 64, 0.15);
         }
 
         @media (max-width: 768px) {

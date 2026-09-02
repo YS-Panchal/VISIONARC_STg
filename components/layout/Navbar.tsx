@@ -64,8 +64,10 @@ export default function Navbar() {
     setIsOpen(!isOpen);
   };
 
-  // Disable navbar logo and hamburger on the home page as requested
+  // Disable navbar logo and hamburger on the home page as requested, and on 404 pages
   if (pathname === '/') return null;
+  const validRoutes = ['/architecture', '/interior-design', '/hospitality-architecture', '/landscape', '/renovation'];
+  if (!validRoutes.includes(pathname)) return null;
 
   return (
     <header ref={containerRef} className="navbar" role="banner" style={{

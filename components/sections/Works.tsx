@@ -10,29 +10,29 @@ const worksData = [
   {
     id: '_01',
     title: 'Architecture',
-    tags: ['Conceptual Design', 'Sustainable Spaces', 'Urban Planning'],
-    image: '/images/68dbfd24fdb7045c1c994ad8_speciality-image-3.webp',
+    tags: ['High-Rise', 'Private Residences', 'Luxury Bungalows'],
+    image: '/images/Projects/PROJECTS WEBP/Architecture/HIGH RISE RESIDENTIAL BUILDING/vision-architecture-karma-astron-high-rise-residential-ahmedabad-01.webp',
     href: '/architecture',
   },
   {
     id: '_02',
     title: 'Interior Design',
-    tags: ['Residential', 'Commercial', 'Bespoke Curation'],
-    image: '/images/68dcfd186c4fed1ec248c9fd_speciality-image-2.webp',
+    tags: ['Luxury Residences', 'Corporate Offices', 'Penthouses'],
+    image: '/images/Projects/PROJECTS WEBP/Interior Design/MR DIPESH JHAVERI PRIVATE RESIDENCE/05_29 - Photo_result.webp',
     href: '/interior-design',
   },
   {
     id: '_03',
-    title: 'Landscape Planning',
-    tags: ['Masterplans', 'Sustainable Greenery', 'Urban Parks'],
-    image: '/images/68dbfd1b1720439ef17a5bcc_speciality-image-4.webp',
-    href: '/landscape',
+    title: 'Hospitality Architecture',
+    tags: ['Luxury Resorts', 'Elliptical Banquets', '4-Star Hotels'],
+    image: '/images/Projects/PROJECTS WEBP/Hospitality Architecture/SANTORINI RESORT BHARUCH/vision-architecture-santorini-luxury-resort-bharuch-gujarat-01.webp',
+    href: '/hospitality-architecture',
   },
   {
     id: '_04',
-    title: 'Management &amp; Renovation',
-    tags: ['Project Oversight', 'Heritage Restoration', 'Quality Control'],
-    image: '/images/68dbfd5a5a669be935ee3b02_speciality-image-1.webp',
+    title: 'Renovation and Planning',
+    tags: ['Modern Transformation', 'Heritage Preservation', 'Spatial Refinement'],
+    image: '/images/Projects/PROJECTS WEBP/Renovation & Planning/MR SURESH CHAUHAN PRIVATE RESIDENCE/vision-architecture-suresh-chauhan-heritage-residence-renovation-ahmedabad-07.webp',
     href: '/renovation',
   }
 ];
@@ -57,11 +57,14 @@ export default function Works() {
         const nextCard = cards[index + 1] as any;
         const linkWrapper = card.querySelector('.works-link-wrapper');
         const overlay = card.querySelector('.works-overlay');
+        const textBlock = card.querySelector('.works-text-block');
 
         // Scale down the card underneath
         gsap.to(linkWrapper, {
-          scale: 0.9,
-          ease: 'power1.inOut',
+          scale: 0.92,
+          y: -20,
+          borderRadius: '2rem',
+          ease: 'none',
           scrollTrigger: {
             trigger: nextCard,
             start: 'top 95%',
@@ -72,8 +75,20 @@ export default function Works() {
 
         // Darken the card underneath
         gsap.to(overlay, {
-          opacity: 0.6,
-          ease: 'power1.inOut',
+          opacity: 0.45,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: nextCard,
+            start: 'top 95%',
+            end: 'top 4vh',
+            scrub: true,
+          }
+        });
+
+        // Fade out text content
+        gsap.to(textBlock, {
+          opacity: 0.3,
+          ease: 'none',
           scrollTrigger: {
             trigger: nextCard,
             start: 'top 95%',
@@ -106,8 +121,8 @@ export default function Works() {
                       const transitionTitle = 
                         work.href === '/architecture' ? 'Architecture' :
                         work.href === '/interior-design' ? 'Interior Design' :
-                        work.href === '/landscape' ? 'Landscape & Planning' :
-                        work.href === '/renovation' ? 'Renovation & Management' : '';
+                        work.href === '/hospitality-architecture' || work.href === '/landscape' ? 'Hospitality Architecture' :
+                        work.href === '/renovation' ? 'Renovation & Planning' : '';
                       
                       window.dispatchEvent(new CustomEvent('start-page-transition', {
                         detail: { href: work.href, title: transitionTitle }
@@ -207,6 +222,8 @@ export default function Works() {
             cursor: pointer;
             transform: translate3d(0, 0, 0); /* Forces GPU border-radius clipping */
             isolation: isolate; /* Establishes stacking and clipping boundary */
+            will-change: transform, opacity;
+            transition: border-radius 0.1s ease;
           }
 
           .image-works-wrapper {
@@ -246,6 +263,7 @@ export default function Works() {
             position: relative;
             overflow: hidden;
             z-index: 2;
+            will-change: opacity;
           }
 
           .works-title {

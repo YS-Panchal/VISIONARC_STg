@@ -16,8 +16,8 @@ interface ProjectCard {
 const SERVICE_PAGES = [
   { href: '/architecture', label: 'Architecture' },
   { href: '/interior-design', label: 'Interior Design' },
-  { href: '/landscape', label: 'Landscape & Planning' },
-  { href: '/renovation', label: 'Renovation & Management' },
+  { href: '/hospitality-architecture', label: 'Hospitality Architecture' },
+  { href: '/renovation', label: 'Renovation & Planning' },
 ];
 
 interface SpecialityPageProps {
@@ -113,6 +113,20 @@ export default function SpecialityPage({
     return () => window.removeEventListener('keydown', handleKey);
   }, [lightboxOpen, nextImage, prevImage]);
 
+  // Auto-scroll to anchor if URL contains hash (e.g. from testimonial click)
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.location.hash) {
+      const hash = window.location.hash.substring(1);
+      const timer = setTimeout(() => {
+        const el = document.getElementById(hash);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }, 700); // After transition overlay finishes
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
   // --- Service Page Navigation ---
   const currentIndex = SERVICE_PAGES.findIndex(
     (p) => p.label.toLowerCase() === heroTitle.toLowerCase()
@@ -188,11 +202,16 @@ export default function SpecialityPage({
 
         {/* Projects Grid */}
         <div className="sp-projects-grid">
-          {projects.map((project, i) => (
-            <div key={i} className="sp-project-card">
-              <div className="sp-project-image-wrapper" onClick={() => openLightbox(i)}>
-                {project.images && project.images[0] && (
-                  <Image
+          {projects.map((project, i) => {
+            const slug = project.title
+              .toLowerCase()
+              .replace(/[^a-z0-9]+/g, '-')
+              .replace(/^-|-$/g, '');
+            return (
+              <div key={i} id={slug} className="sp-project-card">
+                <div className="sp-project-image-wrapper" onClick={() => openLightbox(i)}>
+                  {project.images && project.images[0] && (
+                    <Image
                     src={project.images[0]}
                     alt={project.alt}
                     fill
@@ -216,7 +235,8 @@ export default function SpecialityPage({
                 </div>
               </div>
             </div>
-          ))}
+          );
+        })}
         </div>
 
         {/* CTA */}
@@ -265,7 +285,7 @@ export default function SpecialityPage({
           onClick={(e) => handleTransition(e, prevPage.href, prevPage.label)}
         >
           <div className="sp-page-nav-inner">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M15 19l-7-7 7-7" />
             </svg>
             <span className="sp-page-nav-label">{prevPage.label}</span>
@@ -279,7 +299,7 @@ export default function SpecialityPage({
         >
           <div className="sp-page-nav-inner">
             <span className="sp-page-nav-label">{nextPage.label}</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M9 5l7 7-7 7" />
             </svg>
           </div>
@@ -668,7 +688,7 @@ export default function SpecialityPage({
           transform: translateY(-50%);
           z-index: 90;
           text-decoration: none;
-          color: #2f3440;
+          color: #FAFAF8; /* Cream/white text by default inside the grey tab */
           transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -683,30 +703,29 @@ export default function SpecialityPage({
         .sp-page-nav-inner {
           display: flex;
           align-items: center;
-          gap: 0.6rem;
-          padding: 0.9rem 1rem;
-          background: rgba(255, 255, 255, 0.85);
-          backdrop-filter: blur(10px);
-          border: 1px solid rgba(0, 0, 0, 0.06);
+          padding: 0.8rem 1rem;
+          background: #2f3440; /* Grey/charcoal background */
+          border: 1px solid rgba(255, 255, 255, 0.08);
           border-radius: 0;
           transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
         }
 
         .sp-page-nav-left .sp-page-nav-inner {
-          border-radius: 0 8px 8px 0;
-          padding-left: 0.75rem;
+          border-radius: 0 50px 50px 0;
+          padding-left: 0.9rem;
         }
 
         .sp-page-nav-right .sp-page-nav-inner {
-          border-radius: 8px 0 0 8px;
-          padding-right: 0.75rem;
+          border-radius: 50px 0 0 50px;
+          padding-right: 0.9rem;
         }
 
         .sp-page-nav svg {
-          width: 18px;
-          height: 18px;
+          width: 24px; /* Increased size to make it more visible */
+          height: 24px;
           flex-shrink: 0;
-          transition: transform 0.3s ease;
+          transition: transform 0.3s ease, color 0.3s ease;
         }
 
         .sp-page-nav-label {
@@ -718,18 +737,39 @@ export default function SpecialityPage({
           max-width: 0;
           overflow: hidden;
           opacity: 0;
-          transition: max-width 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-                      opacity 0.3s ease 0.1s;
+          color: #FAFAF8; /* Cream text */
         }
 
-        .sp-page-nav:hover .sp-page-nav-label {
+        .sp-page-nav-left .sp-page-nav-label {
+          margin-left: 0;
+          transition: max-width 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                      opacity 0.3s ease 0.1s,
+                      margin-left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .sp-page-nav-left:hover .sp-page-nav-label {
           max-width: 200px;
           opacity: 1;
+          margin-left: 0.8rem;
+        }
+
+        .sp-page-nav-right .sp-page-nav-label {
+          margin-right: 0;
+          transition: max-width 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                      opacity 0.3s ease 0.1s,
+                      margin-right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .sp-page-nav-right:hover .sp-page-nav-label {
+          max-width: 200px;
+          opacity: 1;
+          margin-right: 0.8rem;
         }
 
         .sp-page-nav:hover .sp-page-nav-inner {
-          background: rgba(255, 255, 255, 0.97);
-          box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+          background: #8B2635; /* Grey tab turns Brand Red on hover */
+          border-color: rgba(255, 255, 255, 0.15);
+          box-shadow: 0 8px 32px rgba(139, 38, 53, 0.3);
         }
 
         .sp-page-nav-left:hover svg {
@@ -741,7 +781,7 @@ export default function SpecialityPage({
         }
 
         .sp-page-nav:hover {
-          color: #8B2332;
+          color: #FAFAF8;
         }
 
         /* ===== LIGHTBOX ===== */
@@ -935,11 +975,19 @@ export default function SpecialityPage({
             display: none !important;
           }
           .sp-page-nav-inner {
-            padding: 0.7rem 0.6rem;
+            padding: 0.6rem 0.8rem;
+          }
+          .sp-page-nav-left .sp-page-nav-inner {
+            border-radius: 0 50px 50px 0;
+            padding-left: 0.7rem;
+          }
+          .sp-page-nav-right .sp-page-nav-inner {
+            border-radius: 50px 0 0 50px;
+            padding-right: 0.7rem;
           }
           .sp-page-nav svg {
-            width: 14px;
-            height: 14px;
+            width: 18px;
+            height: 18px;
           }
 
           /* Lightbox responsive */

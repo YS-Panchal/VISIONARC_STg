@@ -1,71 +1,131 @@
 import SpecialityPage from '@/components/pages/SpecialityPage';
 
 export const metadata = {
-  title: 'Renovation & Management | Vision Architecture | Gujarat',
-  description: "Vision Architecture's renovation and project management portfolio — heritage restoration, building upgrades, and turnkey project management across Ahmedabad and Gujarat.",
+  title: 'Renovation & Planning | Vision Architecture | Ahmedabad, Gujarat',
+  description: 'Renovation and planning portfolio by Vision Architecture in Ahmedabad — transforming existing villas, bungalows, and residences with contemporary design.',
 };
 
 const projects = [
   {
-    images: [
-      '/images/68dbfd5a5a669be935ee3b02_speciality-image-1.webp',
-      '/images/68dbf7b1f456696a2949e588_about-image-1.webp',
-      '/images/68dbfd24fdb7045c1c994ad8_speciality-image-3.webp'
+    "images": [
+      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR SURESH CHAUHAN PRIVATE RESIDENCE/vision-architecture-suresh-chauhan-heritage-residence-renovation-ahmedabad-05.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR SURESH CHAUHAN PRIVATE RESIDENCE/vision-architecture-suresh-chauhan-heritage-residence-renovation-ahmedabad-06.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR SURESH CHAUHAN PRIVATE RESIDENCE/vision-architecture-suresh-chauhan-heritage-residence-renovation-ahmedabad-07.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR SURESH CHAUHAN PRIVATE RESIDENCE/vision-architecture-suresh-chauhan-heritage-residence-renovation-ahmedabad-08.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR SURESH CHAUHAN PRIVATE RESIDENCE/vision-architecture-suresh-chauhan-heritage-residence-renovation-ahmedabad-01.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR SURESH CHAUHAN PRIVATE RESIDENCE/vision-architecture-suresh-chauhan-heritage-residence-renovation-ahmedabad-02.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR SURESH CHAUHAN PRIVATE RESIDENCE/vision-architecture-suresh-chauhan-heritage-residence-renovation-ahmedabad-03.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR SURESH CHAUHAN PRIVATE RESIDENCE/vision-architecture-suresh-chauhan-heritage-residence-renovation-ahmedabad-04.webp"
     ],
-    alt: 'Heritage Haveli Restoration',
-    title: 'Heritage Haveli Restoration',
-    description: 'Meticulous structural preservation and aesthetic restoration of a 150-year-old traditional Haveli, retrofitting modern utilities without compromising heritage value.',
-    tags: ['Heritage', 'Restoration', 'Ahmedabad Old City'],
+    "alt": "MR. SURESH CHAUHAN PRIVATE RESIDENCE",
+    "title": "MR. SURESH CHAUHAN PRIVATE RESIDENCE",
+    "description": "This renovated residence preserves the charm of its old architectural identity while introducing a fresh modern language. Traditional elements are carefully retained, while minimal interiors enhance light, openness and everyday functionality.",
+    "tags": [
+      "Heritage & Modern",
+      "Residence Renovation",
+      "Open Interiors",
+      "Ahmedabad"
+    ]
   },
   {
-    images: [
-      '/images/68dbf7b1f456696a2949e588_about-image-1.webp',
-      '/images/68dbfd24fdb7045c1c994ad8_speciality-image-3.webp',
-      '/images/68dcfd186c4fed1ec248c9fd_speciality-image-2.webp'
+    "images": [
+      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR URVISH TRIVEDI PRIVATE RESIDENCE/vision-architecture-urvish-trivedi-bungalow-renovation-ahmedabad-01.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR URVISH TRIVEDI PRIVATE RESIDENCE/vision-architecture-urvish-trivedi-bungalow-renovation-ahmedabad-02.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR URVISH TRIVEDI PRIVATE RESIDENCE/vision-architecture-urvish-trivedi-bungalow-renovation-ahmedabad-03.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR URVISH TRIVEDI PRIVATE RESIDENCE/vision-architecture-urvish-trivedi-bungalow-renovation-ahmedabad-04.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR URVISH TRIVEDI PRIVATE RESIDENCE/vision-architecture-urvish-trivedi-bungalow-renovation-ahmedabad-05.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR URVISH TRIVEDI PRIVATE RESIDENCE/vision-architecture-urvish-trivedi-bungalow-renovation-ahmedabad-06.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR URVISH TRIVEDI PRIVATE RESIDENCE/vision-architecture-urvish-trivedi-bungalow-renovation-ahmedabad-07.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR URVISH TRIVEDI PRIVATE RESIDENCE/vision-architecture-urvish-trivedi-bungalow-renovation-ahmedabad-08.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR URVISH TRIVEDI PRIVATE RESIDENCE/vision-architecture-urvish-trivedi-bungalow-renovation-ahmedabad-09.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR URVISH TRIVEDI PRIVATE RESIDENCE/vision-architecture-urvish-trivedi-bungalow-renovation-ahmedabad-10.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR URVISH TRIVEDI PRIVATE RESIDENCE/vision-architecture-urvish-trivedi-bungalow-renovation-ahmedabad-11.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR URVISH TRIVEDI PRIVATE RESIDENCE/vision-architecture-urvish-trivedi-bungalow-renovation-ahmedabad-12.webp"
     ],
-    alt: 'Industrial Warehouse Conversion',
-    title: 'Industrial Warehouse Conversion',
-    description: 'Transforming an abandoned textile mill into a modern multi-agency design studio, retaining exposed brick walls and iron trusses.',
-    tags: ['Turnkey', 'Adaptive Reuse', 'Ahmedabad'],
+    "alt": "MR. URVISH TRIVEDI PRIVATE RESIDENCE",
+    "title": "MR. URVISH TRIVEDI PRIVATE RESIDENCE",
+    "description": "A traditional bungalow reimagined as a refined modern residence with improved comfort, openness and functionality. Its old-world character is retained, while contemporary elements, warm lighting and upgraded spaces bring a renewed lifestyle experience.",
+    "tags": [
+      "Traditional Reimagined",
+      "Bungalow Transformation",
+      "Warm Lighting",
+      "Ahmedabad"
+    ]
   },
   {
-    images: [
-      '/images/68dbfd24fdb7045c1c994ad8_speciality-image-3.webp',
-      '/images/68dcfd186c4fed1ec248c9fd_speciality-image-2.webp',
-      '/images/68dbfd1b1720439ef17a5bcc_speciality-image-4.webp'
+    "images": [
+      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-01.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-02.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-03.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-04.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-05.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-06.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-07.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-08.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-09.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-10.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-11.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-12.webp"
     ],
-    alt: 'Corporate Headquarters Upgrade',
-    title: 'Corporate Headquarters Upgrade',
-    description: 'Complete interior and MEP services overhaul of a 10-year-old corporate office to improve energy efficiency, acoustics, and spatial utilization.',
-    tags: ['Commercial', 'MEP Upgrade', 'Ahmedabad'],
+    "alt": "MR. MITUL SHAH PRIVATE RESIDENCE",
+    "title": "MR. MITUL SHAH PRIVATE RESIDENCE",
+    "description": "This residence renovation transforms an existing home into a more open, comfortable and functional living space. Spacious bedrooms, refined common areas and scarlet highlights introduce freshness, warmth and a distinct design personality.",
+    "tags": [
+      "Residence Renovation",
+      "Open Living",
+      "Scarlet Highlights",
+      "Ahmedabad"
+    ]
   },
   {
-    images: [
-      '/images/68dcfd186c4fed1ec248c9fd_speciality-image-2.webp',
-      '/images/68dbfd1b1720439ef17a5bcc_speciality-image-4.webp',
-      '/images/68dbfd5a5a669be935ee3b02_speciality-image-1.webp'
+    "images": [
+      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR ANIL CHAUHAN PRIVATE RESIDENCE/vision-architecture-anil-chauhan-residence-renovation-ahmedabad-01.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR ANIL CHAUHAN PRIVATE RESIDENCE/vision-architecture-anil-chauhan-residence-renovation-ahmedabad-02.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR ANIL CHAUHAN PRIVATE RESIDENCE/vision-architecture-anil-chauhan-residence-renovation-ahmedabad-03.webp"
     ],
-    alt: 'Turnkey Residential Refurbishment',
-    title: 'Turnkey Residential Refurbishment',
-    description: 'Full turnkey remodeling of a suburban family bungalow, from demolition and structural reinforcement to final interior furnishing.',
-    tags: ['Residential', 'Refurbishment', 'Ahmedabad'],
+    "alt": "MR. ANIL CHAUHAN PRIVATE RESIDENCE",
+    "title": "MR. ANIL CHAUHAN PRIVATE RESIDENCE",
+    "description": "A comprehensive architectural and spatial renovation aimed at maximizing daylight, ventilation, and contemporary aesthetic appeal.",
+    "tags": [
+      "Architectural Renovation",
+      "Modern Living",
+      "Spatial Planning",
+      "Ahmedabad"
+    ]
   },
+  {
+    "images": [
+      "/images/Projects/PROJECTS WEBP/Renovation & Planning/SHANKAR PRAJAPATI PRIVATE RESIDENCE/vision-architecture-shankar-prajapati-de-elegante-villa-renovation-ahmedabad-01.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation & Planning/SHANKAR PRAJAPATI PRIVATE RESIDENCE/vision-architecture-shankar-prajapati-de-elegante-villa-renovation-ahmedabad-02.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation & Planning/SHANKAR PRAJAPATI PRIVATE RESIDENCE/vision-architecture-shankar-prajapati-de-elegante-villa-renovation-ahmedabad-03.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation & Planning/SHANKAR PRAJAPATI PRIVATE RESIDENCE/vision-architecture-shankar-prajapati-de-elegante-villa-renovation-ahmedabad-04.webp"
+    ],
+    "alt": "SHANKAR PRAJAPATI PRIVATE RESIDENCE",
+    "title": "SHANKAR PRAJAPATI PRIVATE RESIDENCE",
+    "description": "De Elegante Villa presents a balanced identity of modern contemporary architecture and interiors rooted in traditional elegance. Carved elements, warm materials and refined planning create a luxurious residence with depth, detail and character.",
+    "tags": [
+      "Contemporary Villa",
+      "Traditional Elegance",
+      "Villa Renovation",
+      "Ahmedabad"
+    ]
+  }
 ];
 
 export default function Renovation() {
   return (
     <SpecialityPage
-      heroTitle="Renovation & Management"
-      heroSubtitle="Breathing new life into existing structures and managing projects from conception to completion — with precision and cultural sensitivity."
-      heroBackground="/images/68dbfd5a5a669be935ee3b02_speciality-image-1.webp"
-      introHeading="Reviving with Respect"
+      heroTitle="Renovation & Planning"
+      heroSubtitle="Breathing new life into existing spaces through thoughtful restructuring, modern aesthetic upgrades, and functional optimization."
+      heroBackground="/images/Projects/PROJECTS WEBP/Renovation & Planning/MR SURESH CHAUHAN PRIVATE RESIDENCE/vision-architecture-suresh-chauhan-heritage-residence-renovation-ahmedabad-01.webp"
+      introHeading="Transformative Space Renewal"
       introParagraphs={[
-        "Our renovation practice is rooted in the belief that existing structures hold stories worth preserving. We approach every project with deep respect for the original intent — integrating modern systems, improved accessibility, and contemporary aesthetics while honoring the building's heritage.",
-        "Our management work spans end-to-end project delivery, cost control, contractor coordination, and quality assurance, all guided by transparency and client-first principles."
+        "Our renovation projects focus on honoring existing architectural character while seamlessly infusing modern layout efficiencies, enhanced natural light, and contemporary finishes.",
+        "From complete bungalow transformations to refined residential revamps, we reimagine spaces to meet changing lifestyle needs."
       ]}
       projects={projects}
-      ctaHeading="Envision Your Renovation?"
-      ctaText="From heritage restorations to complete building overhauls, we manage projects that endure and inspire."
+      ctaHeading="Ready to Transform Your Space?"
+      ctaText="Let us help you reimagine your existing property with visionary architectural renovation."
     />
   );
 }

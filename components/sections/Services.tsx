@@ -6,21 +6,18 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const servicesData = [
   {
-    subtitle: 'Our Approach',
-    title: 'Innovative Vision',
-    desc: 'Blending aesthetics with cutting-edge technology and sustainable practices to create future-ready spaces that inspire.',
+    title: 'Thoughtful Planning',
+    desc: 'Every successful design begins with a strong planning foundation. We study client requirements, site conditions, circulation, light, ventilation, privacy, and long-term functionality to create spaces that are practical, comfortable, and efficient.',
     video: '/videos/scroll-1.mp4'
   },
   {
-    subtitle: 'our craft',
-    title: 'Functional Precision',
-    desc: 'Designs that are as practical as they are beautiful, meticulously tailored to the human experience and functional excellence.',
+    title: 'Refined Aesthetics',
+    desc: 'Our design approach focuses on creating spaces with balance, elegance, and timeless appeal. Proportions, materials, textures, palettes, lighting, and detailing are curated for a clean, sophisticated, and cohesive design.',
     video: '/videos/scroll-2.mp4'
   },
   {
-    subtitle: 'Our method',
-    title: 'Cultural Reverence',
-    desc: 'Merging modern functionality with a deep respect for local context, heritage, and the environment in every structure.',
+    title: 'Purposeful Execution',
+    desc: 'We believe good design must be practical to execute for real site conditions. Every concept accounts for construction feasibility, material availability, budget awareness, and technical quality so the outcome stays true to the vision.',
     video: '/videos/scroll-3.mp4'
   }
 ];
@@ -78,7 +75,6 @@ export default function Services() {
                     </div>
                     
                     <h6 className="sub_title" style={{ fontFamily: 'sans-serif', textTransform: 'uppercase', marginBottom: '1rem', letterSpacing: '0.1em' }}>
-                      {service.subtitle}
                     </h6>
                     
                     <h3 className="title" style={{ fontFamily: 'var(--font-telegrafico)', fontSize: 'clamp(2rem, 3.5vw, 4rem)', margin: '0 0 1.5rem 0', lineHeight: 1.1 }}>
@@ -129,7 +125,6 @@ export default function Services() {
                   </div>
                   
                   <h6 className="sub_title" style={{ fontFamily: 'sans-serif', textTransform: 'uppercase', marginBottom: '1rem', letterSpacing: '0.1em' }}>
-                    {servicesData[2].subtitle}
                   </h6>
                   
                   <h3 className="title" style={{ fontFamily: 'var(--font-telegrafico)', fontSize: 'clamp(2rem, 3.5vw, 4rem)', margin: '0 0 1.5rem 0', lineHeight: 1.1 }}>

@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: 'Vision Architecture',
-  description: 'Vision Architecture specializes in architecture, interior design, landscape planning, and sustainable developments.',
+  description: 'Vision Architecture specializes in architecture, interior design, hospitality architecture, and renovation & planning.',
   url: 'https://visionarchitecture.in',
   email: 'info.visionarchitecture@gmail.com',
   phones: [
@@ -8,18 +8,19 @@ export const siteConfig = {
     '+91 73592 19598',
   ],
   social: {
-    // Add social links if available
+    linkedin: 'https://www.linkedin.com/company/vision-architecture-india',
+    instagram: 'https://www.instagram.com/visionarchitecture.in/',
   },
   navigation: [
     { name: 'About', href: '/#about' },
     { name: 'Speciality', href: '/#speciality' },
-    { name: 'Founders', href: '/#founders' },
+    { name: 'Founders', href: '/#team' },
     { name: 'Contact', href: '/#contact' },
   ],
   specialties: [
     { name: 'Architecture', href: '/architecture' },
     { name: 'Interior Design', href: '/interior-design' },
-    { name: 'Landscape', href: '/landscape' },
-    { name: 'Renovation', href: '/renovation' },
+    { name: 'Hospitality Architecture', href: '/hospitality-architecture' },
+    { name: 'Renovation & Planning', href: '/renovation' },
   ],
 } as const;

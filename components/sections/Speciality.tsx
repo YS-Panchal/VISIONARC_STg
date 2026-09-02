@@ -64,13 +64,18 @@ export default function Speciality() {
     <>
       <section id="speciality" className="section slide-up-animation">
         <div className="container_full u-padding-72 overflow">
-          <div className="space_large"></div>
-          
-          <div className="sub_heading_wrapper">
-            <div className="subheading">
-              <h6 style={{ fontFamily: 'sans-serif', margin: 0 }}>The Company we keep</h6>
-            </div>
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <p className="paragraph_max_width u-font-size-1-35" style={{
+              maxWidth: '33.33vw',
+              fontSize: '1.35vw',
+              textAlign: 'center',
+              margin: 0,
+              lineHeight: 1.5
+            }}>
+              From urban residences to commercial complexes, we design spaces that inspire and endure.
+            </p>
           </div>
+          <div className="space_large"></div>
           
           <h1 
             id="animated" 
@@ -85,26 +90,13 @@ export default function Speciality() {
               lineHeight: 1.1
             }}
           >
-            {"Our Speciality".split('').map((char, index) => (
+            {"Design Disciplines".split('').map((char, index) => (
               char === ' ' ? ' ' : <span key={index} className="letter" style={{ display: 'inline-block' }}>{char}</span>
             ))}
           </h1>
           
           <div className="title_space"></div>
           
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <p className="paragraph_max_width u-font-size-1-35" style={{
-              maxWidth: '33.33vw',
-              fontSize: '1.35vw',
-              textAlign: 'center',
-              margin: 0,
-              lineHeight: 1.5
-            }}>
-              From urban residences to commercial complexes, we design spaces that inspire and endure.
-            </p>
-          </div>
-          
-          <div className="space"></div>
         </div>
       </section>
 
