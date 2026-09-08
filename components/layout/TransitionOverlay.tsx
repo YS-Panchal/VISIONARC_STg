@@ -88,7 +88,7 @@ export default function TransitionOverlay() {
           left: 0;
           width: 100vw;
           height: 100vh;
-          background-color: #2f3440;
+          background-color: #000000;
           z-index: 99999;
           display: flex;
           align-items: center;
