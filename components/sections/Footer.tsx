@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import DigitalCredit from '@/components/ui/DigitalCredit';
 
 export default function Footer() {
   return (
@@ -45,7 +46,7 @@ export default function Footer() {
             <div className="footer-col footer-col-2">
               <h5 className="footer-heading">Office</h5>
               <p className="footer-text">
-                Vision Architecture Studio, Ahmedabad, Gujarat, India
+                Vision Architecture 1121-1122 Iconic Shyamal, Opp. Shyamal Cross Road, Satellite, Ahmedabad, Gujarat 380015
               </p>
             </div>
 
@@ -125,6 +126,9 @@ export default function Footer() {
         © 2022 - {new Date().getFullYear()} Vision Architecture. <br />
         All Rights Reserved.
       </h6>
+
+      {/* Digital Experience Credit */}
+      <DigitalCredit variant="homepage" />
 
       {/* Large "VISION ARCHITECTURE" text at very bottom */}
       <div className="space_largish"></div>

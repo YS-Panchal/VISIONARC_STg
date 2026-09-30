@@ -3,6 +3,8 @@
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import DigitalCredit from '@/components/ui/DigitalCredit';
+import FloatingActions from '@/components/ui/FloatingActions';
 
 interface ProjectCard {
   images: string[];
@@ -241,11 +243,21 @@ export default function SpecialityPage({
 
         {/* CTA */}
         <section className="sp-cta">
-          <h2>{ctaHeading}</h2>
-          <p>{ctaText}</p>
-          <Link href="/#contact" className="sp-cta-btn">
-            Get in Touch
-          </Link>
+          <div className="sp-cta-card">
+            <div className="sp-cta-corner sp-cta-corner-tl" />
+            <div className="sp-cta-corner sp-cta-corner-br" />
+            <div className="sp-cta-content">
+              <h2>{ctaHeading}</h2>
+              <p>{ctaText}</p>
+              <Link href="/#contact" className="sp-cta-btn">
+                <span>Get in Touch</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </Link>
+            </div>
+          </div>
         </section>
 
         {/* Footer */}
@@ -275,6 +287,7 @@ export default function SpecialityPage({
               <p>+91 96876 88373 | +91 73592 19598</p>
             </div>
           </div>
+          <DigitalCredit variant="speciality" />
         </footer>
 
         {/* ===== SERVICE PAGE NAVIGATION ARROWS ===== */}
@@ -374,6 +387,9 @@ export default function SpecialityPage({
           </div>
         </div>
       )}
+
+      {/* Floating Action Buttons */}
+      <FloatingActions />
 
       <style dangerouslySetInnerHTML={{ __html: `
         /* ===== MAIN PAGE ===== */
@@ -608,46 +624,117 @@ export default function SpecialityPage({
           font-family: var(--font-telegrafico), 'Telegrafico', sans-serif;
         }
 
-        /* CTA */
+        /* CTA — Architectural Glassmorphism Panel */
         .sp-cta {
+          padding: clamp(4.5rem, 8vw, 7.5rem) 5%;
+          background: #f9f9f9;
+          position: relative;
+        }
+
+        .sp-cta-card {
+          max-width: 880px;
+          margin: 0 auto;
+          position: relative;
+          background: linear-gradient(135deg, rgba(47, 52, 64, 0.95) 0%, rgba(33, 37, 46, 0.98) 100%);
+          backdrop-filter: blur(24px) saturate(150%);
+          -webkit-backdrop-filter: blur(24px) saturate(150%);
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          border-radius: 1.5rem;
+          padding: clamp(3.2rem, 5.5vw, 5rem) clamp(1.5rem, 4vw, 3.5rem);
           text-align: center;
-          padding: 4rem 2rem;
-          background: #2f3440;
           color: #fff;
+          box-shadow: 0 24px 60px rgba(0, 0, 0, 0.14), 0 4px 16px rgba(0, 0, 0, 0.08);
+          overflow: hidden;
+        }
+
+        .sp-cta-card::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background-image: 
+            linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+          background-size: 36px 36px;
+          pointer-events: none;
+        }
+
+        .sp-cta-corner {
+          position: absolute;
+          width: 14px;
+          height: 14px;
+          border-color: rgba(255, 255, 255, 0.25);
+          pointer-events: none;
+        }
+
+        .sp-cta-corner-tl {
+          top: 1.25rem;
+          left: 1.25rem;
+          border-top: 1.5px solid rgba(255, 255, 255, 0.25);
+          border-left: 1.5px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .sp-cta-corner-br {
+          bottom: 1.25rem;
+          right: 1.25rem;
+          border-bottom: 1.5px solid rgba(255, 255, 255, 0.25);
+          border-right: 1.5px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .sp-cta-content {
+          position: relative;
+          z-index: 1;
         }
 
         .sp-cta h2 {
-          font-size: 1.6rem;
-          margin-bottom: 0.75rem;
+          font-size: clamp(1.6rem, 2.5vw, 2.3rem);
+          margin-bottom: 0.85rem;
           font-family: var(--font-telegrafico), 'Telegrafico', sans-serif;
           font-weight: 400;
+          letter-spacing: 0.02em;
+          color: #ffffff;
         }
 
         .sp-cta p {
-          max-width: 450px;
-          margin: 0 auto 1.75rem;
-          opacity: 0.6;
-          line-height: 1.7;
+          max-width: 500px;
+          margin: 0 auto 2.2rem;
+          color: rgba(255, 255, 255, 0.72);
+          line-height: 1.75;
           font-weight: 300;
-          font-size: 0.95rem;
+          font-size: clamp(0.88rem, 1vw, 1.05rem);
+          font-family: 'Satoshi', sans-serif;
         }
 
         .sp-cta-btn {
-          display: inline-block;
-          padding: 0.75rem 2.25rem;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.6rem;
+          padding: 0.85rem 2.5rem;
           border: 1px solid rgba(255, 255, 255, 0.3);
+          border-radius: 4px;
+          background: rgba(255, 255, 255, 0.05);
           color: #fff;
           text-decoration: none;
           text-transform: uppercase;
-          font-size: 0.7rem;
-          letter-spacing: 0.18em;
-          transition: all 0.3s;
+          font-size: clamp(0.65rem, 0.75vw, 0.75rem);
+          letter-spacing: 0.2em;
+          transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
           font-family: var(--font-telegrafico), 'Telegrafico', sans-serif;
         }
 
         .sp-cta-btn:hover {
-          background: #fff;
-          color: #2f3440;
+          background: #8B2635;
+          border-color: #8B2635;
+          color: #fff;
+          transform: translateY(-2px);
+          box-shadow: 0 10px 24px rgba(139, 38, 53, 0.28);
+        }
+
+        .sp-cta-btn svg {
+          transition: transform 0.3s ease;
+        }
+
+        .sp-cta-btn:hover svg {
+          transform: translateX(3px);
         }
 
         /* Footer */

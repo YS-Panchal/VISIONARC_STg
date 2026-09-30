@@ -10,24 +10,26 @@ export default function FloatingActions() {
     const handleScroll = () => {
       const aboutEl = document.getElementById('about');
       const contactEl = document.getElementById('contact');
-      if (!aboutEl) return;
+      const spFooter = document.querySelector('.sp-footer');
 
-      const aboutRect = aboutEl.getBoundingClientRect();
-      const contactRect = contactEl ? contactEl.getBoundingClientRect() : null;
-
-      // "Reaches about" -> top of #about is within viewport or above (80% window height)
-      const reachedAbout = aboutRect.top <= window.innerHeight * 0.8;
-      
-      // "Enters let's talk" -> top of #contact enters the viewport (90% window height)
-      const enteredContact = contactRect ? contactRect.top <= window.innerHeight * 0.9 : false;
-
-      setIsVisible(reachedAbout && !enteredContact);
+      if (aboutEl) {
+        // Homepage: show between #about and #contact
+        const aboutRect = aboutEl.getBoundingClientRect();
+        const contactRect = contactEl ? contactEl.getBoundingClientRect() : null;
+        const reachedAbout = aboutRect.top <= window.innerHeight * 0.8;
+        const enteredContact = contactRect ? contactRect.top <= window.innerHeight * 0.9 : false;
+        setIsVisible(reachedAbout && !enteredContact);
+      } else {
+        // Specialty pages: show after 250px scroll, hide near footer
+        const scrolled = window.scrollY > 250;
+        const footerRect = spFooter ? spFooter.getBoundingClientRect() : null;
+        const nearFooter = footerRect ? footerRect.top <= window.innerHeight * 0.95 : false;
+        setIsVisible(scrolled && !nearFooter);
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleScroll);
-    
-    // Run initially to evaluate scroll state on load
     handleScroll();
 
     return () => {
@@ -58,7 +60,7 @@ export default function FloatingActions() {
           position: 'fixed',
           bottom: '2.5rem',
           right: '5%',
-          zIndex: 9999,
+          zIndex: 9990,
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
@@ -76,11 +78,11 @@ export default function FloatingActions() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            width: '2.8rem',
-            height: '2.8rem',
+            width: '3.25rem',
+            height: '3.25rem',
             borderRadius: '50%',
-            backgroundColor: '#2f3440', // var(--charcoal-blue)
-            color: '#f9f9f9', // var(--white)
+            backgroundColor: '#2f3440',
+            color: '#f9f9f9',
             border: 'none',
             cursor: 'pointer',
             boxShadow: '0 8px 30px rgba(0, 0, 0, 0.12)',
@@ -93,8 +95,8 @@ export default function FloatingActions() {
         >
           {copied ? (
             <svg 
-              width="18" 
-              height="18" 
+              width="21" 
+              height="21" 
               viewBox="0 0 24 24" 
               fill="none" 
               stroke="currentColor" 
@@ -106,8 +108,8 @@ export default function FloatingActions() {
             </svg>
           ) : (
             <svg 
-              width="18" 
-              height="18" 
+              width="21" 
+              height="21" 
               viewBox="0 0 24 24" 
               fill="none" 
               stroke="currentColor" 
@@ -122,7 +124,7 @@ export default function FloatingActions() {
           {copied && (
             <span style={{
               position: 'absolute',
-              right: '3.5rem',
+              right: '4rem',
               backgroundColor: '#2f3440',
               color: '#fff',
               padding: '0.4rem 0.8rem',
@@ -146,11 +148,11 @@ export default function FloatingActions() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            width: '2.8rem',
-            height: '2.8rem',
+            width: '3.25rem',
+            height: '3.25rem',
             borderRadius: '50%',
-            backgroundColor: '#f9f9f9', // var(--white)
-            color: '#2f3440', // var(--charcoal-blue)
+            backgroundColor: '#f9f9f9',
+            color: '#2f3440',
             border: '1px solid rgba(47, 52, 64, 0.15)',
             cursor: 'pointer',
             boxShadow: '0 8px 30px rgba(0, 0, 0, 0.08)',
@@ -161,8 +163,8 @@ export default function FloatingActions() {
           aria-label="Scroll to top"
         >
           <svg 
-            width="18" 
-            height="18" 
+            width="21" 
+            height="21" 
             viewBox="0 0 24 24" 
             fill="none" 
             stroke="currentColor" 

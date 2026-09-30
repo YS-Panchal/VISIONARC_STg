@@ -85,10 +85,14 @@ export default function About() {
                     loading="lazy"
                   />
                 </div>
+                {/* Top Subtle Localized Gradient & Featured Label */}
+                <div className="about-featured-top-badge">
+                  <span className="about-featured-tag">Featured Project</span>
+                </div>
+
                 {/* Gradient Overlay */}
                 <div className="about-featured-overlay">
                   <div className="about-featured-meta">
-                    <span className="about-featured-tag">Featured Project</span>
                     <h4 className="about-featured-name">The Arc Banquet and Restaurant</h4>
                     <div className="about-featured-location">
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -130,7 +134,6 @@ export default function About() {
               {/* Eyebrow */}
               <div className="about-eyebrow about-anim about-anim-2">
                 <span className="about-eyebrow-text"><strong>Who We Are</strong></span>
-                <span className="about-eyebrow-line"></span>
               </div>
 
               {/* Headline */}
@@ -270,19 +273,42 @@ export default function About() {
             justify-content: flex-end;
           }
 
-          .about-featured-meta {
+          /* Top Subtle Gradient & Featured Pill Capsule */
+          .about-featured-top-badge {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: clamp(1.4rem, 2.2vw, 2.2rem) clamp(1.5rem, 2.5vw, 2.5rem);
+            z-index: 2;
             display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
+            align-items: flex-start;
+            pointer-events: none;
           }
 
           .about-featured-tag {
             font-family: var(--font-telegrafico), 'Telegrafico', sans-serif;
-            font-size: clamp(0.55rem, 0.7vw, 0.7rem);
-            letter-spacing: 0.22em;
+            font-size: clamp(0.64rem, 0.76vw, 0.82rem);
+            letter-spacing: 0.18em;
             text-transform: uppercase;
-            color: #8B2635;
-            font-weight: 400;
+            color: #ffffff;
+            font-weight: 500;
+            line-height: 1;
+            margin: 0;
+            padding: 0.42rem 0.95rem;
+            background: linear-gradient(
+              135deg,
+              rgba(38, 42, 51, 0.8) 0%,
+              rgba(20, 23, 28, 0.9) 100%
+            );
+            backdrop-filter: blur(16px) saturate(150%);
+            -webkit-backdrop-filter: blur(16px) saturate(150%);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 9999px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+            display: inline-flex;
+            align-items: center;
+            width: fit-content;
           }
 
           .about-featured-name {
@@ -349,19 +375,11 @@ export default function About() {
 
           .about-eyebrow-text {
             font-family: var(--font-telegrafico), 'Telegrafico', sans-serif;
-            font-size: clamp(0.6rem, 0.8vw, 0.82rem);
+            font-size: clamp(0.72rem, 0.85vw, 0.9rem);
             letter-spacing: 0.22em;
             color: #8B2635;
             text-transform: uppercase;
             font-weight: 400;
-          }
-
-          .about-eyebrow-line {
-            display: block;
-            width: clamp(2rem, 3.5vw, 3rem);
-            height: 1.5px;
-            background-color: #8B2635;
-            flex-shrink: 0;
           }
 
           /* Headline */
@@ -542,6 +560,15 @@ export default function About() {
               border-radius: 20px;
             }
 
+            .about-featured-top-badge {
+              padding: 1.25rem 1.4rem;
+            }
+
+            .about-featured-tag {
+              font-size: 0.68rem;
+              padding: 0.38rem 0.85rem;
+            }
+
             .about-headline {
               font-size: clamp(1.8rem, 7vw, 2.5rem);
             }
@@ -573,6 +600,15 @@ export default function About() {
           @media (max-width: 480px) {
             .about-featured-card {
               min-height: 280px;
+            }
+
+            .about-featured-top-badge {
+              padding: 1rem 1.15rem;
+            }
+
+            .about-featured-tag {
+              font-size: 0.62rem;
+              padding: 0.32rem 0.75rem;
             }
 
             .about-headline {

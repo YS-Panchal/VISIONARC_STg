@@ -641,7 +641,6 @@ export default function Hero() {
                 <span className="hero-eyebrow-text">
                  <strong>WHERE VISION MEETS PRECISION</strong>
                 </span>
-                <span className="hero-eyebrow-line"></span>
               </div>
 
               {/* Headline */}
@@ -933,19 +932,12 @@ export default function Hero() {
           }
           .hero-eyebrow-text {
             font-family: var(--font-telegrafico), 'Telegrafico', sans-serif;
-            font-size: clamp(0.62rem, 0.78vw, 0.82rem);
+            font-size: clamp(0.72rem, 0.85vw, 0.9rem);
             letter-spacing: 0.22em;
             color: #8B2635;
             text-transform: uppercase;
             font-weight: 400;
             white-space: nowrap;
-          }
-          .hero-eyebrow-line {
-            display: block;
-            width: clamp(2rem, 3.5vw, 3.5rem);
-            height: 1.5px;
-            background-color: #8B2635;
-            flex-shrink: 0;
           }
           .hero-headline {
             font-family: var(--font-telegrafico), 'Telegrafico', sans-serif;

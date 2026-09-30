@@ -77,7 +77,7 @@ export default function Contact() {
                     <div className="contact-us-wrapper-half">
                       <div style={{ display: 'flex', flexDirection: 'column' }}>
                         <label htmlFor="Service" className="field_label">Service</label>
-                        <div className="booking-select-field" style={{ width: '100%' }}>
+                        <div className="booking-select-field" style={{ width: '100%', position: 'relative' }}>
                           <select id="Service" name="Service" required className="select">
                             <option value="architecture">Architecture</option>
                             <option value="interior">Interior Design</option>
@@ -85,6 +85,9 @@ export default function Contact() {
                             <option value="renovation">Renovation &amp; Planning</option>
                             <option value="other">Other</option>
                           </select>
+                          <svg className="select-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2f3440" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ position: 'absolute', right: '1.25rem', top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none', opacity: 0.45 }}>
+                            <polyline points="6 9 12 15 18 9" />
+                          </svg>
                         </div>
                       </div>
                     </div>
@@ -180,15 +183,17 @@ export default function Contact() {
         .select {
           background-color: #f7f6f3;
           color: #2f3440;
-          padding: 0.875rem 1.25rem;
+          padding: 0.875rem 2.75rem 0.875rem 1.25rem;
           border-radius: 0.75rem;
           border: 1px solid rgba(47, 52, 64, 0.08);
           width: 100%;
           min-height: 7svh;
           font-size: 1rem;
           appearance: none;
+          -webkit-appearance: none;
           outline: none;
           box-sizing: border-box;
+          cursor: pointer;
           transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
         
