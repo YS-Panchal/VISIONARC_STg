@@ -115,7 +115,7 @@ export default function Footer() {
         <a href="/cookie-policy" className="footer_link">
           <h6 className="footer_link_text">Cookie Policy</h6>
         </a>
-        <a href="/terms-conditions" className="footer_link">
+        <a href="/terms-and-conditions" className="footer_link">
           <h6 className="footer_link_text">Terms of Service</h6>
         </a>
       </div>

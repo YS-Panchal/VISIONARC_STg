@@ -21,7 +21,7 @@ export default function DigitalCredit({ variant = 'homepage' }: DigitalCreditPro
           <div className={`dc-sp-default ${isHovered ? 'dc-sp-hidden' : ''}`}>
             <span className="dc-sp-line" />
             <span className="dc-sp-text">
-              DIGITAL EXPERIENCE BY <span className="dc-sp-ys-highlight">YS</span> ↗
+              DIGITAL EXPERIENCE BY <span className="dc-sp-ys-highlight">YS</span> 
             </span>
             <span className="dc-sp-line" />
           </div>

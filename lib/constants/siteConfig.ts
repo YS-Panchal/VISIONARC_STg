@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: 'Vision Architecture',
-  description: 'Vision Architecture specializes in architecture, interior design, hospitality architecture, and renovation & planning.',
+  description: 'Vision Architecture specializes in architecture, hospitality architecture, interior design, and renovation & planning.',
   url: 'https://visionarchitecture.in',
   email: 'info.visionarchitecture@gmail.com',
   phones: [
@@ -19,8 +19,8 @@ export const siteConfig = {
   ],
   specialties: [
     { name: 'Architecture', href: '/architecture' },
-    { name: 'Interior Design', href: '/interior-design' },
     { name: 'Hospitality Architecture', href: '/hospitality-architecture' },
+    { name: 'Interior Design', href: '/interior-design' },
     { name: 'Renovation & Planning', href: '/renovation' },
   ],
 } as const;

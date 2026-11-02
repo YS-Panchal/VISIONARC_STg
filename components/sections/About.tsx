@@ -11,14 +11,14 @@ const expertiseData = [
     items: ['Residential', 'Commercial', 'Institutional', 'Master Planning']
   },
   {
-    icon: Armchair,
-    title: 'Interior Design',
-    items: ['Luxury Homes', 'Corporate Spaces', 'Hospitality', 'Custom Interiors']
-  },
-  {
     icon: Hotel,
     title: 'Hospitality Architecture',
     items: ['Resorts & Hotels', 'Restaurants & Cafés', 'Banquets & Lounges', 'Theme Landmarks']
+  },
+  {
+    icon: Armchair,
+    title: 'Interior Design',
+    items: ['Luxury Homes', 'Corporate Spaces', 'Hospitality', 'Custom Interiors']
   },
   {
     icon: Hammer,

@@ -14,8 +14,8 @@ export default function TransitionOverlay() {
   // Map pathnames to titles for direct entry/initial loads
   const getPageTitle = (path: string) => {
     if (path === '/architecture') return 'Architecture';
-    if (path === '/interior-design') return 'Interior Design';
     if (path === '/hospitality-architecture' || path === '/landscape') return 'Hospitality Architecture';
+    if (path === '/interior-design') return 'Interior Design';
     if (path === '/renovation') return 'Renovation & Planning';
     return '';
   };

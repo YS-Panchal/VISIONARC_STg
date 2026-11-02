@@ -66,7 +66,7 @@ export default function Navbar() {
 
   // Disable navbar logo and hamburger on the home page as requested, and on 404 pages
   if (pathname === '/') return null;
-  const validRoutes = ['/architecture', '/interior-design', '/hospitality-architecture', '/landscape', '/renovation'];
+  const validRoutes = ['/architecture', '/hospitality-architecture', '/interior-design', '/landscape', '/renovation'];
   if (!validRoutes.includes(pathname)) return null;
 
   return (

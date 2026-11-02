@@ -58,7 +58,7 @@ export default function CookieBanner() {
         <div className="va-cookie-inner">
           <p className="va-cookie-text">
             We use cookies to enhance your browsing experience. By continuing, you agree to our{' '}
-            <Link href="/cookies-policy" className="va-cookie-link">
+            <Link href="/cookie-policy" className="va-cookie-link">
               Cookie Policy
             </Link>
             .

@@ -11,7 +11,7 @@ import Link from 'next/link';
 const statsData = [
   { target: 2.2, isFloat: true, unit: ' MILLION+', suffix: ' SQFT', label: 'TOTAL DESIGNED AREA' },
   { target: 1.7, isFloat: true, unit: ' MILLION+', suffix: ' SQFT', label: 'TOTAL EXECUTED AREA' },
-  { target: 100, isFloat: false, unit: '', suffix: '+', label: 'DESIGN PROJECTS' },
+  { target: 121, isFloat: false, unit: '', suffix: '+', label: 'DESIGN PROJECTS' },
 ];
 
 interface PanelConfig {
@@ -41,30 +41,11 @@ const panelsConfig: PanelConfig[] = [
       '/images/Projects/PROJECTS WEBP/Architecture/SARVASV (VINAY JOSHI RESIDENCE)/vision-architecture-sarvasva-vinay-joshi-luxury-bungalow-ahmedabad-01.webp',
       '/images/Projects/PROJECTS WEBP/Architecture/NITYAM BUNGLOWS/vision-architecture-nityam-bungalows-5bhk-luxury-residential-ahmedabad-01.webp',
       '/images/Projects/PROJECTS WEBP/Architecture/MR RAJESH PATEL PRIVATE RESIDENCE/vision-architecture-rajesh-patel-exposed-brick-residence-ahmedabad-01.webp',
-      '/images/Projects/PROJECTS WEBP/Architecture/MR DHIREN SHAH PRIVATE RESIDENCE/vision-architecture-dhiren-shah-private-residence-ahmedabad-10.webp',
-      '/images/Projects/PROJECTS WEBP/Architecture/NITIN THAKKAR PRIVATE RESIDENCE/vision-architecture-nitin-thakkar-modern-residence-ahmedabad-01.webp',
     ],
     restOffset: -18,
     breathAmp: 5,
     breathDuration: 7.5,
     baseInterval: 8000,
-  },
-  {
-    id: 'interior',
-    title: 'INTERIOR DESIGN',
-    href: '/interior-design',
-    transitionTitle: 'Interior Design',
-    images: [
-      '/images/Projects/PROJECTS WEBP/Interior Design/MR GAURANG PATEL PRIVATE RESIDENCE/vision-architecture-gaurang-patel-4bhk-interior-design-ahmedabad-01.webp',
-      '/images/Projects/PROJECTS WEBP/Interior Design/MR LINAY PATEL PRIVATE RESIDENCE/vision-architecture-linay-patel-house-of-warmth-interiors-ahmedabad-01.webp',
-      '/images/Projects/PROJECTS WEBP/Interior Design/MR VIJAY PANCHAL PRIVATE RESIDENCE/vision-architecture-vijay-panchal-5bhk-penthouse-interiors-ahmedabad-01.webp',
-      '/images/Projects/PROJECTS WEBP/Interior Design/SARK EPC PVT LTD/vision-architecture-sark-epc-corporate-office-interiors-ahmedabad-01.webp',
-      '/images/Projects/PROJECTS WEBP/Interior Design/VISION OFFICE/vision-architecture-studio-office-interior-design-ahmedabad-01.webp',
-    ],
-    restOffset: 18,
-    breathAmp: 5,
-    breathDuration: 8.5,
-    baseInterval: 9500,
   },
   {
     id: 'hospitality',
@@ -76,12 +57,27 @@ const panelsConfig: PanelConfig[] = [
       '/images/Projects/PROJECTS WEBP/Hospitality Architecture/THE ARC BANQUET AND RESTAURANT/vision-architecture-the-arc-elliptical-banquet-restaurant-ahmedabad-01.webp',
       '/images/Projects/PROJECTS WEBP/Hospitality Architecture/THE VAAV THEME RESTAURANT/vision-architecture-the-vaav-stepwell-theme-restaurant-banquet-ahmedabad-01.webp',
       '/images/Projects/PROJECTS WEBP/Hospitality Architecture/THE CROWN BY KINGS KRAFT/vision-architecture-the-crown-kings-kraft-4star-hotel-ahmedabad-01.webp',
-      '/images/Projects/PROJECTS WEBP/Hospitality Architecture/SANTORINI RESORT BHARUCH/vision-architecture-santorini-luxury-resort-bharuch-gujarat-02.webp',
     ],
-    restOffset: -18,
+    restOffset: 18,
     breathAmp: 5,
     breathDuration: 7.8,
     baseInterval: 7500,
+  },
+  {
+    id: 'interior',
+    title: 'INTERIOR DESIGN',
+    href: '/interior-design',
+    transitionTitle: 'Interior Design',
+    images: [
+      '/images/Projects/PROJECTS WEBP/Interior Design/MR GAURANG PATEL PRIVATE RESIDENCE/vision-architecture-gaurang-patel-4bhk-interior-design-ahmedabad-01.webp',
+      '/images/Projects/PROJECTS WEBP/Interior Design/MR LINAY PATEL PRIVATE RESIDENCE/vision-architecture-linay-patel-house-of-warmth-interiors-ahmedabad-01.webp',
+      '/images/Projects/PROJECTS WEBP/Interior Design/MR VIJAY PANCHAL PRIVATE RESIDENCE/vision-architecture-vijay-panchal-5bhk-penthouse-interiors-ahmedabad-01.webp',
+      '/images/Projects/PROJECTS WEBP/Interior Design/SARK EPC PVT LTD/vision-architecture-sark-epc-corporate-office-interiors-ahmedabad-01.webp',
+    ],
+    restOffset: -18,
+    breathAmp: 5,
+    breathDuration: 8.5,
+    baseInterval: 9500,
   },
   {
     id: 'renovation',
@@ -92,7 +88,6 @@ const panelsConfig: PanelConfig[] = [
       '/images/Projects/PROJECTS WEBP/Renovation & Planning/MR SURESH CHAUHAN PRIVATE RESIDENCE/vision-architecture-suresh-chauhan-heritage-residence-renovation-ahmedabad-01.webp',
       '/images/Projects/PROJECTS WEBP/Renovation & Planning/MR URVISH TRIVEDI PRIVATE RESIDENCE/vision-architecture-urvish-trivedi-bungalow-renovation-ahmedabad-01.webp',
       '/images/Projects/PROJECTS WEBP/Renovation & Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-01.webp',
-      '/images/Projects/PROJECTS WEBP/Renovation & Planning/MR ANIL CHAUHAN PRIVATE RESIDENCE/vision-architecture-anil-chauhan-residence-renovation-ahmedabad-01.webp',
       '/images/Projects/PROJECTS WEBP/Renovation & Planning/SHANKAR PRAJAPATI PRIVATE RESIDENCE/vision-architecture-shankar-prajapati-de-elegante-villa-renovation-ahmedabad-01.webp',
     ],
     restOffset: 18,
@@ -498,21 +493,6 @@ export default function Hero() {
           </Link>
           <div className="custom-nav-divider">·</div>
           <Link
-            href="/interior-design"
-            className="custom-nav-item"
-            onClick={(e) => {
-              e.preventDefault();
-              window.dispatchEvent(
-                new CustomEvent('start-page-transition', {
-                  detail: { href: '/interior-design', title: 'Interior Design' },
-                })
-              );
-            }}
-          >
-            INTERIOR DESIGN
-          </Link>
-          <div className="custom-nav-divider">·</div>
-          <Link
             href="/hospitality-architecture"
             className="custom-nav-item"
             onClick={(e) => {
@@ -528,6 +508,21 @@ export default function Hero() {
             }}
           >
             HOSPITALITY
+          </Link>
+          <div className="custom-nav-divider">·</div>
+          <Link
+            href="/interior-design"
+            className="custom-nav-item"
+            onClick={(e) => {
+              e.preventDefault();
+              window.dispatchEvent(
+                new CustomEvent('start-page-transition', {
+                  detail: { href: '/interior-design', title: 'Interior Design' },
+                })
+              );
+            }}
+          >
+            INTERIOR DESIGN
           </Link>
           <div className="custom-nav-divider">·</div>
           <Link
@@ -577,20 +572,6 @@ export default function Hero() {
               ARCHITECTURE
             </Link>
             <Link
-              href="/interior-design"
-              onClick={(e) => {
-                e.preventDefault();
-                setIsMobileMenuOpen(false);
-                window.dispatchEvent(
-                  new CustomEvent('start-page-transition', {
-                    detail: { href: '/interior-design', title: 'Interior Design' },
-                  })
-                );
-              }}
-            >
-              INTERIOR DESIGN
-            </Link>
-            <Link
               href="/hospitality-architecture"
               onClick={(e) => {
                 e.preventDefault();
@@ -606,6 +587,20 @@ export default function Hero() {
               }}
             >
               HOSPITALITY
+            </Link>
+            <Link
+              href="/interior-design"
+              onClick={(e) => {
+                e.preventDefault();
+                setIsMobileMenuOpen(false);
+                window.dispatchEvent(
+                  new CustomEvent('start-page-transition', {
+                    detail: { href: '/interior-design', title: 'Interior Design' },
+                  })
+                );
+              }}
+            >
+              INTERIOR DESIGN
             </Link>
             <Link
               href="/renovation"
@@ -676,8 +671,8 @@ export default function Hero() {
                   animation: `heroSlideUp 0.6s cubic-bezier(0.16,1,0.3,1) ${baseDelay + 0.45}s forwards`,
                 }}
               >
-                Vision Architecture delivers premier architecture, interior
-                design, hospitality and renovation solutions across Ahmedabad
+                Vision Architecture delivers premier architecture, hospitality,
+                interior design and renovation solutions across Ahmedabad
                 and Gujarat. We create purposeful, timeless and sustainable
                 environments crafted with structural precision.
               </p>

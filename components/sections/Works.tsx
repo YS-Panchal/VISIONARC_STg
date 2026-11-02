@@ -16,17 +16,17 @@ const worksData = [
   },
   {
     id: '_02',
-    title: 'Interior Design',
-    tags: ['Luxury Residences', 'Corporate Offices', 'Penthouses'],
-    image: '/images/Projects/PROJECTS WEBP/Interior Design/MR DIPESH JHAVERI PRIVATE RESIDENCE/vision-architecture-dipesh-jhaveri-double-height-luxury-residence-ahmedabad-17.webp',
-    href: '/interior-design',
-  },
-  {
-    id: '_03',
     title: 'Hospitality Architecture',
     tags: ['Luxury Resorts', 'Elliptical Banquets', '4-Star Hotels'],
     image: '/images/Projects/PROJECTS WEBP/Hospitality Architecture/SANTORINI RESORT BHARUCH/vision-architecture-santorini-luxury-resort-bharuch-gujarat-01.webp',
     href: '/hospitality-architecture',
+  },
+  {
+    id: '_03',
+    title: 'Interior Design',
+    tags: ['Luxury Residences', 'Corporate Offices', 'Penthouses'],
+    image: '/images/Projects/PROJECTS WEBP/Interior Design/MR DIPESH JHAVERI PRIVATE RESIDENCE/vision-architecture-dipesh-jhaveri-double-height-luxury-residence-ahmedabad-17.webp',
+    href: '/interior-design',
   },
   {
     id: '_04',
@@ -120,8 +120,8 @@ export default function Works() {
                       e.preventDefault();
                       const transitionTitle = 
                         work.href === '/architecture' ? 'Architecture' :
-                        work.href === '/interior-design' ? 'Interior Design' :
                         work.href === '/hospitality-architecture' || work.href === '/landscape' ? 'Hospitality Architecture' :
+                        work.href === '/interior-design' ? 'Interior Design' :
                         work.href === '/renovation' ? 'Renovation & Planning' : '';
                       
                       window.dispatchEvent(new CustomEvent('start-page-transition', {

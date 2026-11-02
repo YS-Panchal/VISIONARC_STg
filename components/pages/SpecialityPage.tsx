@@ -1,10 +1,11 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import DigitalCredit from '@/components/ui/DigitalCredit';
 import FloatingActions from '@/components/ui/FloatingActions';
+import staticDimensions from '@/lib/constants/imageDimensions.json';
 
 interface ProjectCard {
   images: string[];
@@ -17,8 +18,8 @@ interface ProjectCard {
 // Navigation order for service page switching
 const SERVICE_PAGES = [
   { href: '/architecture', label: 'Architecture' },
-  { href: '/interior-design', label: 'Interior Design' },
   { href: '/hospitality-architecture', label: 'Hospitality Architecture' },
+  { href: '/interior-design', label: 'Interior Design' },
   { href: '/renovation', label: 'Renovation & Planning' },
 ];
 
@@ -43,42 +44,126 @@ export default function SpecialityPage({
   ctaHeading,
   ctaText,
 }: SpecialityPageProps) {
-  // --- Lightbox State ---
+  // --- Lightbox State & 3-Image Horizontal Sliding Gallery ---
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [activeProjectIndex, setActiveProjectIndex] = useState(0);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const [slideDirection, setSlideDirection] = useState<'next' | 'prev' | null>(null);
+  const [isSliding, setIsSliding] = useState(false);
+  const isSlidingRef = useRef(false);
+
+  // Dynamic image dimensions cache & measurement
+  const [imageDimensions, setImageDimensions] = useState<Record<string, { width: number; height: number }>>({});
+  const [viewportSize, setViewportSize] = useState({ width: 1200, height: 800 });
+
+  const recordDimensions = useCallback((src: string, width: number, height: number) => {
+    if (!src || !width || !height) return;
+    setImageDimensions((prev) => {
+      if (prev[src]?.width === width && prev[src]?.height === height) return prev;
+      return { ...prev, [src]: { width, height } };
+    });
+  }, []);
+
+  const getImageDimensions = useCallback(
+    (src: string): { width: number; height: number } | undefined => {
+      if (!src) return undefined;
+      return (staticDimensions as Record<string, { width: number; height: number }>)[src] || imageDimensions[src];
+    },
+    [imageDimensions]
+  );
+
+  useEffect(() => {
+    if (!lightboxOpen) return;
+    const updateSize = () => {
+      setViewportSize({ width: window.innerWidth, height: window.innerHeight });
+    };
+    updateSize();
+    window.addEventListener('resize', updateSize);
+    return () => window.removeEventListener('resize', updateSize);
+  }, [lightboxOpen]);
 
   // Swipe support state
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
-  const minSwipeDistance = 50;
+  const minSwipeDistance = 45;
 
   const openLightbox = (projectIndex: number) => {
     setActiveProjectIndex(projectIndex);
     setActiveImageIndex(0);
+    setSlideDirection(null);
+    setIsSliding(false);
+    isSlidingRef.current = false;
     setLightboxOpen(true);
     document.body.style.overflow = 'hidden';
   };
 
   const closeLightbox = () => {
     setLightboxOpen(false);
+    setSlideDirection(null);
+    setIsSliding(false);
+    isSlidingRef.current = false;
     document.body.style.overflow = '';
   };
 
   const currentProject = projects[activeProjectIndex];
   const currentImages = currentProject?.images || [];
 
-  const nextImage = useCallback(() => {
-    if (currentImages.length > 0) {
-      setActiveImageIndex((prev) => (prev + 1) % currentImages.length);
-    }
+  const handleNext = useCallback(() => {
+    if (currentImages.length <= 1 || isSlidingRef.current) return;
+    isSlidingRef.current = true;
+    setSlideDirection('next');
+    setIsSliding(true);
   }, [currentImages.length]);
 
-  const prevImage = useCallback(() => {
-    if (currentImages.length > 0) {
-      setActiveImageIndex((prev) => (prev - 1 + currentImages.length) % currentImages.length);
-    }
+  const handlePrev = useCallback(() => {
+    if (currentImages.length <= 1 || isSlidingRef.current) return;
+    isSlidingRef.current = true;
+    setSlideDirection('prev');
+    setIsSliding(true);
   }, [currentImages.length]);
+
+  // Complete sliding animation at 400ms
+  useEffect(() => {
+    if (!isSliding || !slideDirection) return;
+
+    const timer = setTimeout(() => {
+      if (slideDirection === 'next') {
+        setActiveImageIndex((prev) => (prev + 1) % currentImages.length);
+      } else if (slideDirection === 'prev') {
+        setActiveImageIndex((prev) => (prev - 1 + currentImages.length) % currentImages.length);
+      }
+      setIsSliding(false);
+      setSlideDirection(null);
+      isSlidingRef.current = false;
+    }, 400);
+
+    return () => clearTimeout(timer);
+  }, [isSliding, slideDirection, currentImages.length]);
+
+  // Preload immediate adjacent images
+  useEffect(() => {
+    if (!lightboxOpen || currentImages.length <= 1) return;
+
+    const toPreload = [
+      (activeImageIndex + 1) % currentImages.length,
+      (activeImageIndex - 1 + currentImages.length) % currentImages.length,
+      (activeImageIndex + 2) % currentImages.length,
+    ];
+
+    toPreload.forEach((idx) => {
+      const src = currentImages[idx];
+      if (src && typeof window !== 'undefined') {
+        const img = new window.Image();
+        img.src = src;
+        img.onload = () => {
+          recordDimensions(src, img.naturalWidth, img.naturalHeight);
+        };
+        if ('decode' in img) {
+          img.decode().catch(() => {});
+        }
+      }
+    });
+  }, [lightboxOpen, activeImageIndex, currentImages]);
 
   // Touch handlers for mobile swipe
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -91,16 +176,15 @@ export default function SpecialityPage({
   };
 
   const handleTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
+    if (touchStart === null || touchEnd === null) return;
     const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > minSwipeDistance;
-    const isRightSwipe = distance < -minSwipeDistance;
-    if (isLeftSwipe) {
-      nextImage();
+    if (distance > minSwipeDistance) {
+      handleNext();
+    } else if (distance < -minSwipeDistance) {
+      handlePrev();
     }
-    if (isRightSwipe) {
-      prevImage();
-    }
+    setTouchStart(null);
+    setTouchEnd(null);
   };
 
   // Keyboard navigation for lightbox
@@ -108,12 +192,122 @@ export default function SpecialityPage({
     if (!lightboxOpen) return;
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowRight') nextImage();
-      if (e.key === 'ArrowLeft') prevImage();
+      if (e.key === 'ArrowRight') handleNext();
+      if (e.key === 'ArrowLeft') handlePrev();
     };
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
-  }, [lightboxOpen, nextImage, prevImage]);
+  }, [lightboxOpen, handleNext, handlePrev]);
+
+  // Extract clean project title and category metadata
+  const getProjectDisplayMeta = (project?: ProjectCard) => {
+    if (!project) return { title: '', category: '' };
+    const rawTitle = project.title || '';
+    const separators = [' – ', ' — ', ' - '];
+
+    for (const sep of separators) {
+      if (rawTitle.includes(sep)) {
+        const parts = rawTitle.split(sep);
+        return {
+          title: parts[0].trim(),
+          category: parts.slice(1).join(sep).trim().toUpperCase(),
+        };
+      }
+    }
+
+    const category = project.tags && project.tags.length > 0
+      ? project.tags.slice(0, 2).join(' • ').toUpperCase()
+      : (heroTitle || 'VISION ARCHITECTURE').toUpperCase();
+
+    return {
+      title: rawTitle.trim(),
+      category,
+    };
+  };
+
+  const projectMeta = getProjectDisplayMeta(currentProject);
+
+  // Proportional sizing & viewport geometry for natural aspect ratios
+  const isMobile = viewportSize.width <= 768;
+  const headerH = isMobile ? 60 : 75;
+  const footerH = isMobile ? 95 : 105;
+  const verticalPadding = isMobile ? 20 : 36;
+
+  const maxAvailableHeight = Math.max(260, viewportSize.height - headerH - footerH - verticalPadding);
+  const maxAvailableWidth = isMobile
+    ? Math.round(viewportSize.width * 0.90)
+    : Math.min(Math.round(viewportSize.width * 0.78), 1280);
+  const cardGap = isMobile ? 16 : 28;
+
+  const computeCardSize = useCallback(
+    (dim: { width: number; height: number } | undefined) => {
+      if (!dim || !dim.width || !dim.height) {
+        const fallbackH = Math.min(maxAvailableHeight, 600);
+        const fallbackW = Math.min(maxAvailableWidth, Math.round(fallbackH * (16 / 9)));
+        return { width: fallbackW, height: fallbackH };
+      }
+
+      const scaleW = maxAvailableWidth / dim.width;
+      const scaleH = maxAvailableHeight / dim.height;
+      // Proportional scale down only; no unnecessary upscaling beyond natural resolution
+      const scale = Math.min(scaleW, scaleH, 1.0);
+
+      return {
+        width: Math.max(120, Math.round(dim.width * scale)),
+        height: Math.max(120, Math.round(dim.height * scale)),
+      };
+    },
+    [maxAvailableWidth, maxAvailableHeight]
+  );
+
+  const slotOffsets = [-2, -1, 0, 1, 2];
+  const slotCards = slotOffsets.map((offset) => {
+    const imgIndex = (activeImageIndex + offset + currentImages.length * 100) % currentImages.length;
+    const src = currentImages[imgIndex];
+    const dim = getImageDimensions(src);
+    const size = computeCardSize(dim);
+    return {
+      offset,
+      imgIndex,
+      src,
+      width: size.width,
+      height: size.height,
+    };
+  });
+
+  const cFarPrev = slotCards[0];
+  const cPrev = slotCards[1];
+  const c0 = slotCards[2];
+  const cNext = slotCards[3];
+  const cFarNext = slotCards[4];
+
+  // Positions relative to center (c0 is at 0):
+  const cPrevX = - (c0.width / 2 + cardGap + cPrev.width / 2);
+  const cFarPrevX = cPrevX - (cPrev.width / 2 + cardGap + cFarPrev.width / 2);
+  const cNextX = c0.width / 2 + cardGap + cNext.width / 2;
+  const cFarNextX = cNextX + (cNext.width / 2 + cardGap + cFarNext.width / 2);
+
+  const cardPositions: Record<number, number> = {
+    [-2]: cFarPrevX,
+    [-1]: cPrevX,
+    [0]: 0,
+    [1]: cNextX,
+    [2]: cFarNextX,
+  };
+
+  const slideNextDistance = cNextX;
+  const slidePrevDistance = Math.abs(cPrevX);
+
+  const trackTransform = isSliding
+    ? slideDirection === 'next'
+      ? `translate3d(-${slideNextDistance}px, 0, 0)`
+      : slideDirection === 'prev'
+      ? `translate3d(${slidePrevDistance}px, 0, 0)`
+      : 'translate3d(0px, 0, 0)'
+    : 'translate3d(0px, 0, 0)';
+
+  const arrowPrevLeft = Math.max(isMobile ? 8 : 16, (viewportSize.width - c0.width) / 2 - 50 - (isMobile ? 8 : 18));
+  const arrowNextRight = Math.max(isMobile ? 8 : 16, (viewportSize.width - c0.width) / 2 - 50 - (isMobile ? 8 : 18));
 
   // Auto-scroll to anchor if URL contains hash (e.g. from testimonial click)
   useEffect(() => {
@@ -319,72 +513,188 @@ export default function SpecialityPage({
         </Link>
       </main>
 
-      {/* ===== LIGHTBOX MODAL ===== */}
+      {/* ===== LIGHTBOX MODAL — CINEMATIC 3-IMAGE GALLERY (MATCHING REFERENCE) ===== */}
       {lightboxOpen && currentProject && (
-        <div className="sp-lightbox" onClick={closeLightbox}>
-          <div 
-            className="sp-lightbox-inner" 
-            onClick={(e) => e.stopPropagation()}
+        <div
+          className="sp-lightbox"
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${projectMeta.title} Gallery`}
+        >
+          {/* Top Header */}
+          <header className="sp-lb-header">
+            <div className="sp-lb-brand">
+              <div className="sp-lb-brand-text">
+                <span className="sp-lb-brand-main">VISION</span>
+                <span className="sp-lb-brand-sub">ARCHITECTURE</span>
+              </div>
+              <div className="sp-lb-brand-line" />
+            </div>
+
+            <button
+              type="button"
+              className="sp-lb-close"
+              onClick={closeLightbox}
+              aria-label="Close gallery (Esc)"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+              <span className="sp-lb-close-label">CLOSE</span>
+            </button>
+          </header>
+
+          {/* Main Gallery Stage — Three-Image Horizontal Track with Natural Proportions */}
+          <div
+            className="sp-lb-stage"
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
-            {/* Close */}
-            <button className="sp-lightbox-close" onClick={closeLightbox} aria-label="Close">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <path d="M18 6L6 18M6 6l12 12" />
-              </svg>
-            </button>
+            <div
+              className={`sp-lb-track ${isSliding ? "is-sliding" : ""}`}
+              style={{
+                transform: trackTransform,
+              }}
+            >
+              {currentImages.length === 1 ? (
+                <div
+                  className="sp-lb-card sp-lb-card-active"
+                  style={{
+                    width: c0.width,
+                    height: c0.height,
+                    transform: "translate3d(-50%, -50%, 0)",
+                  }}
+                >
+                  <Image
+                    src={c0.src}
+                    alt={`${projectMeta.title} - View 1`}
+                    width={c0.width}
+                    height={c0.height}
+                    priority
+                    unoptimized
+                    className="sp-lb-img"
+                  />
+                </div>
+              ) : (
+                slotCards.map((card) => {
+                  const isCenter = card.offset === 0;
+                  const isLeft = card.offset === -1;
+                  const isRight = card.offset === 1;
+                  const posX = cardPositions[card.offset];
 
-            {/* Previous */}
-            {currentImages.length > 1 && (
-              <button className="sp-lightbox-arrow sp-lightbox-prev" onClick={prevImage} aria-label="Previous image">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
-            )}
-
-            {/* Image */}
-            <div className="sp-lightbox-image-container">
-              {currentImages[activeImageIndex] && (
-                <Image
-                  src={currentImages[activeImageIndex]}
-                  alt={currentProject.alt}
-                  fill
-                  sizes="100vw"
-                  className="sp-lightbox-image"
-                  style={{ objectFit: 'contain' }}
-                  priority
-                />
-              )}
-              
-              <div className="sp-lightbox-caption">
-                <h3>{currentProject.title}</h3>
-                {currentImages.length > 1 && (
-                  <div className="sp-lightbox-dots">
-                    {currentImages.map((_, i) => (
-                      <button
-                        key={i}
-                        className={`sp-lightbox-dot ${i === activeImageIndex ? 'active' : ''}`}
-                        onClick={() => setActiveImageIndex(i)}
-                        aria-label={`Go to image ${i + 1}`}
+                  return (
+                    <div
+                      key={card.offset}
+                      className={`sp-lb-card ${isCenter ? "sp-lb-card-active" : "sp-lb-card-preview"}`}
+                      style={{
+                        width: card.width,
+                        height: card.height,
+                        transform: `translate3d(calc(-50% + ${posX}px), -50%, 0)`,
+                      }}
+                      onClick={() => {
+                        if (isLeft) handlePrev();
+                        if (isRight) handleNext();
+                      }}
+                    >
+                      <Image
+                        src={card.src}
+                        alt={`${projectMeta.title} - View ${card.imgIndex + 1}`}
+                        width={card.width}
+                        height={card.height}
+                        priority={isCenter}
+                        loading={isCenter ? "eager" : "lazy"}
+                        unoptimized
+                        className="sp-lb-img"
+                        onLoad={(e) => {
+                          const target = e.currentTarget;
+                          recordDimensions(card.src, target.naturalWidth, target.naturalHeight);
+                        }}
                       />
-                    ))}
-                  </div>
-                )}
-              </div>
+                      {!isCenter && <div className="sp-lb-card-veil" />}
+                    </div>
+                  );
+                })
+              )}
             </div>
 
-            {/* Next */}
+            {/* Circular Navigation Arrows beside Active Image */}
             {currentImages.length > 1 && (
-              <button className="sp-lightbox-arrow sp-lightbox-next" onClick={nextImage} aria-label="Next image">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
+              <>
+                <button
+                  type="button"
+                  className="sp-lb-arrow sp-lb-arrow-prev"
+                  style={{ left: arrowPrevLeft }}
+                  onClick={handlePrev}
+                  aria-label="Previous photograph"
+                >
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="15 18 9 12 15 6" />
+                  </svg>
+                </button>
+
+                <button
+                  type="button"
+                  className="sp-lb-arrow sp-lb-arrow-next"
+                  style={{ right: arrowNextRight }}
+                  onClick={handleNext}
+                  aria-label="Next photograph"
+                >
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="9 18 15 12 9 6" />
+                  </svg>
+                </button>
+              </>
             )}
           </div>
+          {/* Dedicated Bottom Information Bar (Separate, Unobstructed) */}
+          <footer className="sp-lb-footer">
+            <div className="sp-lb-footer-left">
+              <div className="sp-lb-accent-bar" />
+              <h3 className="sp-lb-project-title">{projectMeta.title}</h3>
+              <p className="sp-lb-project-cat">{projectMeta.category}</p>
+            </div>
+
+            {currentImages.length > 1 && (
+              <div className="sp-lb-footer-center">
+                <div className="sp-lb-progress" role="tablist" aria-label="Project images">
+                  {currentImages.map((_, idx) => (
+                    <button
+                      key={idx}
+                      type="button"
+                      role="tab"
+                      aria-selected={idx === activeImageIndex}
+                      aria-label={`Go to slide ${idx + 1}`}
+                      className={`sp-lb-dash ${idx === activeImageIndex ? 'is-active' : ''}`}
+                      onClick={() => {
+                        if (idx === activeImageIndex || isSlidingRef.current) return;
+                        if (idx === (activeImageIndex + 1) % currentImages.length) {
+                          handleNext();
+                        } else if (idx === (activeImageIndex - 1 + currentImages.length) % currentImages.length) {
+                          handlePrev();
+                        } else {
+                          setActiveImageIndex(idx);
+                        }
+                      }}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
+
+            <div className="sp-lb-footer-right">
+              <div className="sp-lb-counter">
+                <span className="sp-lb-counter-current">
+                  {String(activeImageIndex + 1).padStart(2, '0')}
+                </span>
+                <span className="sp-lb-counter-sep">/</span>
+                <span className="sp-lb-counter-total">
+                  {String(currentImages.length).padStart(2, '0')}
+                </span>
+              </div>
+            </div>
+          </footer>
         </div>
       )}
 
@@ -871,173 +1181,354 @@ export default function SpecialityPage({
           color: #FAFAF8;
         }
 
-        /* ===== LIGHTBOX ===== */
+        /* ===== LIGHTBOX REDESIGN (CINEMATIC ARCHITECTURAL VIEWER) ===== */
         .sp-lightbox {
           position: fixed;
           inset: 0;
           z-index: 100000;
-          background: #0b0c10;
+          background: #090A0D;
+          background-image: radial-gradient(circle at 50% 50%, #12141A 0%, #08090C 100%);
           display: flex;
-          align-items: center;
-          justify-content: center;
-          animation: spLightboxIn 0.3s ease-out;
+          flex-direction: column;
+          justify-content: space-between;
+          width: 100vw;
+          height: 100vh;
+          height: 100dvh;
+          overflow: hidden;
+          user-select: none;
+          animation: spLightboxFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        @keyframes spLightboxIn {
+        @keyframes spLightboxFadeIn {
           0% { opacity: 0; }
           100% { opacity: 1; }
         }
 
-        .sp-lightbox-inner {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 100vw;
-          height: 100vh;
-          position: relative;
-          user-select: none;
-        }
-
-        .sp-lightbox-close {
+        /* Top Header */
+        .sp-lb-header {
           position: absolute;
-          top: 2rem;
-          right: 2rem;
-          background: rgba(0, 0, 0, 0.45);
-          border: 1px solid rgba(255, 255, 255, 0.15);
-          border-radius: 50%;
-          width: 52px;
-          height: 52px;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: clamp(60px, 8.5vh, 85px);
+          padding: 0 clamp(1.5rem, 4vw, 3.5rem);
           display: flex;
           align-items: center;
-          justify-content: center;
-          cursor: pointer;
-          color: #fff;
-          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-          z-index: 20;
-          backdrop-filter: blur(8px);
+          justify-content: space-between;
+          z-index: 30;
+          pointer-events: auto;
         }
 
-        .sp-lightbox-close:hover {
-          background: rgba(139, 35, 50, 0.85);
-          border-color: #8B2332;
-          transform: rotate(90deg) scale(1.08);
+        .sp-lb-brand {
+          position: relative;
+          display: inline-flex;
+          flex-direction: column;
         }
 
-        .sp-lightbox-close svg {
-          width: 24px;
-          height: 24px;
+        .sp-lb-brand-text {
+          display: flex;
+          align-items: baseline;
+          gap: 9px;
+          font-family: var(--font-telegrafico), 'Telegrafico', sans-serif;
+          font-size: clamp(0.85rem, 1vw, 1.05rem);
+          letter-spacing: 0.22em;
         }
 
-        .sp-lightbox-arrow {
-          background: rgba(0, 0, 0, 0.45);
-          border: 1px solid rgba(255, 255, 255, 0.15);
-          border-radius: 50%;
-          width: 56px;
-          height: 56px;
+        .sp-lb-brand-main {
+          color: #ffffff;
+          font-weight: 400;
+        }
+
+        .sp-lb-brand-sub {
+          color: rgba(255, 255, 255, 0.52);
+          font-weight: 300;
+        }
+
+        .sp-lb-brand-line {
+          position: absolute;
+          bottom: -6px;
+          left: 0;
+          width: 26px;
+          height: 2px;
+          background-color: #8B2635;
+          border-radius: 1px;
+        }
+
+        .sp-lb-close {
           display: flex;
           align-items: center;
-          justify-content: center;
+          gap: 9px;
+          background: transparent;
+          border: none;
           cursor: pointer;
-          color: #fff;
-          transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+          color: rgba(255, 255, 255, 0.75);
+          padding: 8px 12px;
+          border-radius: 6px;
+          transition: all 0.25s ease;
+          font-family: var(--font-telegrafico), 'Telegrafico', sans-serif;
+        }
+
+        .sp-lb-close:hover {
+          color: #ffffff;
+        }
+
+        .sp-lb-close:hover svg {
+          color: #8B2635;
+          transform: rotate(90deg);
+        }
+
+        .sp-lb-close svg {
+          transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .sp-lb-close-label {
+          font-size: clamp(0.72rem, 0.8vw, 0.85rem);
+          letter-spacing: 0.22em;
+          font-weight: 400;
+        }
+
+        /* Center Stage — Horizontal Natural-Proportion Sliding Gallery */
+        .sp-lb-stage {
+          position: absolute;
+          top: clamp(60px, 8.5vh, 85px);
+          bottom: clamp(80px, 13vh, 115px);
+          left: 0;
+          right: 0;
+          overflow: hidden;
+          pointer-events: auto;
+        }
+
+        .sp-lb-track {
+          position: absolute;
+          inset: 0;
+          will-change: transform;
+        }
+
+        .sp-lb-track.is-sliding {
+          transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .sp-lb-card {
           position: absolute;
           top: 50%;
-          transform: translateY(-50%);
-          z-index: 20;
-          backdrop-filter: blur(8px);
-        }
-
-        .sp-lightbox-arrow:hover {
-          background: #8B2332;
-          border-color: #8B2332;
-          color: #fff;
-          transform: translateY(-50%) scale(1.08);
-        }
-
-        .sp-lightbox-prev {
-          left: 3rem;
-        }
-
-        .sp-lightbox-next {
-          right: 3rem;
-        }
-
-        .sp-lightbox-arrow svg {
-          width: 24px;
-          height: 24px;
-        }
-
-        .sp-lightbox-image-container {
-          width: 100%;
-          height: 100%;
+          left: 50%;
           display: flex;
           align-items: center;
           justify-content: center;
-          position: relative;
+          border-radius: 12px;
+          overflow: hidden;
+          box-shadow: 0 16px 50px rgba(0, 0, 0, 0.7);
+          transition: opacity 0.35s ease, box-shadow 0.35s ease;
+          user-select: none;
+          background: transparent;
         }
 
-        .sp-lightbox-image {
+        .sp-lb-img {
+          display: block;
           width: 100%;
           height: 100%;
           object-fit: contain;
-          animation: spImageIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+          object-position: center;
+          border-radius: 12px;
         }
 
-        @keyframes spImageIn {
-          0% { opacity: 0; transform: scale(0.97); }
-          100% { opacity: 1; transform: scale(1); }
+        .sp-lb-card-active {
+          opacity: 1;
+          box-shadow: 0 24px 70px rgba(0, 0, 0, 0.88), 0 0 0 1px rgba(255, 255, 255, 0.06);
+          z-index: 5;
         }
 
-        .sp-lightbox-caption {
+        .sp-lb-card-preview {
+          opacity: 0.62;
+          cursor: pointer;
+          z-index: 2;
+        }
+
+        .sp-lb-card-preview:hover {
+          opacity: 0.9;
+        }
+
+        .sp-lb-card-veil {
           position: absolute;
-          bottom: 3rem;
-          left: 50%;
-          transform: translateX(-50%);
-          z-index: 20;
-          text-align: center;
-          background: rgba(11, 12, 16, 0.75);
-          backdrop-filter: blur(12px);
-          border: 1px solid rgba(255, 255, 255, 0.08);
-          padding: 1rem 2.5rem;
-          border-radius: 30px;
-          min-width: 280px;
-          box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+          inset: 0;
+          background: rgba(10, 11, 14, 0.45);
+          transition: background 0.3s ease;
+          border-radius: 12px;
+          pointer-events: none;
         }
 
-        .sp-lightbox-caption h3 {
-          color: #fff;
+        .sp-lb-card-preview:hover .sp-lb-card-veil {
+          background: rgba(10, 11, 14, 0.2);
+        }
+
+        /* Circular Navigation Arrows */
+        .sp-lb-arrow {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          background: rgba(18, 20, 25, 0.75);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          border: 1px solid rgba(255, 255, 255, 0.16);
+          color: #ffffff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          z-index: 25;
+          transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+        }
+
+        .sp-lb-arrow:hover {
+          background: #8B2635;
+          border-color: #8B2635;
+          box-shadow: 0 8px 30px rgba(139, 38, 53, 0.5);
+          transform: translateY(-50%) scale(1.08);
+        }
+
+        .sp-lb-arrow:active {
+          transform: translateY(-50%) scale(0.96);
+        }
+        /* Dedicated Bottom Information Bar */
+        .sp-lb-footer {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: clamp(80px, 13vh, 115px);
+          padding: 0 clamp(1.5rem, 4vw, 3.5rem) clamp(1rem, 2.2vh, 2rem);
+          display: grid;
+          grid-template-columns: 1fr auto 1fr;
+          align-items: flex-end;
+          z-index: 30;
+          pointer-events: auto;
+        }
+
+        .sp-lb-footer-left {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          min-width: 0;
+        }
+
+        .sp-lb-accent-bar {
+          width: 34px;
+          height: 2px;
+          background-color: #8B2635;
+          border-radius: 1px;
+          margin-bottom: 9px;
+        }
+
+        .sp-lb-project-title {
+          font-family: var(--font-telegrafico), 'Telegrafico', sans-serif;
+          font-size: clamp(1.15rem, 1.8vw, 1.7rem);
+          color: #ffffff;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+          margin: 0;
+          font-weight: 400;
+          line-height: 1.15;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .sp-lb-project-cat {
+          font-family: var(--font-telegrafico), 'Telegrafico', sans-serif;
+          font-size: clamp(0.68rem, 0.8vw, 0.82rem);
+          color: rgba(255, 255, 255, 0.45);
+          text-transform: uppercase;
+          letter-spacing: 0.16em;
+          margin: 6px 0 0 0;
+          font-weight: 300;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .sp-lb-footer-center {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 0 1rem;
+        }
+
+        .sp-lb-progress {
+          display: flex;
+          align-items: center;
+          gap: clamp(6px, 0.8vw, 10px);
+          max-width: 42vw;
+          overflow-x: auto;
+          scrollbar-width: none;
+          padding: 4px 0;
+        }
+
+        .sp-lb-progress::-webkit-scrollbar {
+          display: none;
+        }
+
+        .sp-lb-dash {
+          height: 2px;
+          width: clamp(24px, 3.2vw, 44px);
+          background: rgba(255, 255, 255, 0.16);
+          border: none;
+          padding: 0;
+          border-radius: 1px;
+          cursor: pointer;
+          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+          flex-shrink: 0;
+        }
+
+        .sp-lb-dash:hover:not(.is-active) {
+          background: rgba(255, 255, 255, 0.4);
+        }
+
+        .sp-lb-dash.is-active {
+          background: #8B2635;
+          width: clamp(34px, 4.4vw, 56px);
+        }
+
+        .sp-lb-footer-right {
+          display: flex;
+          justify-content: flex-end;
+          align-items: flex-end;
+        }
+
+        .sp-lb-counter {
+          display: flex;
+          align-items: baseline;
+          gap: 6px;
           font-family: var(--font-telegrafico), 'Telegrafico', sans-serif;
           font-weight: 400;
-          font-size: 0.95rem;
+          user-select: none;
+        }
+
+        .sp-lb-counter-current {
+          color: #ffffff;
+          font-size: clamp(1.1rem, 1.4vw, 1.4rem);
           letter-spacing: 0.08em;
-          margin: 0 0 0.6rem 0;
-          text-transform: uppercase;
         }
 
-        .sp-lightbox-dots {
-          display: flex;
-          gap: 0.5rem;
-          justify-content: center;
+        .sp-lb-counter-sep {
+          color: rgba(255, 255, 255, 0.3);
+          font-size: clamp(0.95rem, 1.15vw, 1.2rem);
+          margin: 0 1px;
         }
 
-        .sp-lightbox-dot {
-          width: 8px;
-          height: 8px;
-          border-radius: 50%;
-          background: rgba(255, 255, 255, 0.25);
-          border: none;
-          cursor: pointer;
-          transition: all 0.3s;
-          padding: 0;
+        .sp-lb-counter-total {
+          color: rgba(255, 255, 255, 0.4);
+          font-size: clamp(0.95rem, 1.15vw, 1.2rem);
+          letter-spacing: 0.08em;
         }
 
-        .sp-lightbox-dot.active {
-          background: #8B2332;
-          transform: scale(1.3);
-        }
-
-        .sp-lightbox-dot:hover:not(.active) {
-          background: rgba(255, 255, 255, 0.55);
+        @media (prefers-reduced-motion: reduce) {
+          .sp-lb-track.is-sliding {
+            transition: none !important;
+          }
         }
 
         /* ===== RESPONSIVE ===== */
@@ -1077,35 +1568,59 @@ export default function SpecialityPage({
             height: 18px;
           }
 
-          /* Lightbox responsive */
-          .sp-lightbox-prev {
-            left: 1rem;
+          /* Lightbox mobile responsive */
+          .sp-lb-arrow {
+            width: 42px;
+            height: 42px;
           }
-          .sp-lightbox-next {
-            right: 1rem;
+          .sp-lb-header {
+            height: 60px;
+            padding: 0 1.25rem;
           }
-          .sp-lightbox-arrow {
-            width: 44px;
-            height: 44px;
+          .sp-lb-brand-line {
+            bottom: -4px;
+            width: 22px;
           }
-          .sp-lightbox-arrow svg {
-            width: 18px;
-            height: 18px;
+          .sp-lb-close {
+            padding: 6px 8px;
+            gap: 6px;
           }
-          .sp-lightbox-close {
-            top: 1.5rem;
-            right: 1.5rem;
-            width: 44px;
-            height: 44px;
+          .sp-lb-arrow {
+            width: 42px;
+            height: 42px;
           }
-          .sp-lightbox-close svg {
-            width: 18px;
-            height: 18px;
+          .sp-lb-arrow-prev {
+            left: 0.75rem;
           }
-          .sp-lightbox-caption {
-            bottom: 2rem;
-            padding: 0.8rem 1.8rem;
-            min-width: 220px;
+          .sp-lb-arrow-next {
+            right: 0.75rem;
+          }
+          .sp-lb-footer {
+            height: auto;
+            padding: 0 1.25rem 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+          }
+          .sp-lb-footer-left {
+            width: 100%;
+          }
+          .sp-lb-accent-bar {
+            width: 26px;
+            margin-bottom: 6px;
+          }
+          .sp-lb-footer-center {
+            width: 100%;
+            justify-content: flex-start;
+            padding: 0;
+          }
+          .sp-lb-progress {
+            max-width: 100%;
+          }
+          .sp-lb-footer-right {
+            position: absolute;
+            right: 1.25rem;
+            bottom: 2.2rem;
           }
         }
       `}} />

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import Link from 'next/link';
 
 const linkedInSvg = `<path d="M11.6004 20.9739H8.87928V12.2113H11.6004V20.9739ZM10.2384 11.016C9.36828 11.016 8.6625 10.2952 8.6625 9.42512C8.6625 9.00716 8.82852 8.60636 9.12408 8.3108C9.41958 8.01524 9.82044 7.84922 10.2384 7.84922C10.6563 7.84922 11.0572 8.01524 11.3527 8.3108C11.6482 8.60636 11.8142 9.00716 11.8142 9.42512C11.8142 10.2952 11.1082 11.016 10.2384 11.016ZM19.0693 20.9739V16.7083C19.0693 15.6917 19.0488 14.388 17.6546 14.388C16.2398 14.388 16.0231 15.4925 16.0231 16.6351V20.9739H13.3049V12.2113H15.9146V13.4065H15.9527C16.316 12.7181 17.2034 11.9915 18.5273 11.9915C21.2813 11.9915 21.7875 13.805 21.7875 16.1605V20.9739H19.0693Z" fill="currentColor"></path><path d="M29.1 15C29.1 7.21279 22.7872 0.9 15 0.9C7.21279 0.9 0.9 7.21279 0.9 15C0.9 22.7872 7.21279 29.1 15 29.1C22.7872 29.1 29.1 22.7872 29.1 15ZM30 15C30 23.2843 23.2843 30 15 30C6.71573 30 0 23.2843 0 15C0 6.71573 6.71573 0 15 0C23.2843 0 30 6.71573 30 15Z" fill="currentColor"></path>`;
@@ -115,26 +115,57 @@ export default function Team() {
           <div className="team_space_middle"></div>
 
           {/* =======================================================
-              DESKTOP VIEW — 100% Preserved Original Desktop Layout
+              DESKTOP VIEW — 3-Column Editorial Architecture Layout
              ======================================================= */}
-          <div className="team_desktop_view team_flex flip_animation">
-            {teamData.map((member, i) => (
-              <Link key={i} href={member.href} className="team_card">
-                <div className={`team_image_wrapper ${member.imageClass}`}></div>
+          <div className="team_desktop_view team_editorial_layout flip_animation">
+            {/* Left Column — Studio Philosophy */}
+            <div className="team_editorial_col team_editorial_left">
+              <div className="team_editorial_eyebrow_wrap">
+                <span className="team_editorial_accent_line" />
+                <span className="team_editorial_eyebrow">OUR PHILOSOPHY</span>
+              </div>
+              <p className="team_editorial_statement">
+                &ldquo;Design begins with understanding how people live, feel, and experience a space.&rdquo;
+              </p>
+              <p className="team_editorial_text">
+                We believe meaningful spaces are created through empathy, context and a deep understanding of people&apos;s lifestyles.
+              </p>
+            </div>
 
-                {/* Social icon overlay (hidden by default, shown on hover via CSS) */}
-                <div className="team_social_flex_box">
-                  <div className="social_link_round">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 30 30" fill="none" className="team_social_icon" dangerouslySetInnerHTML={{ __html: linkedInSvg }} />
+            {/* Centre Column — Existing Founder Cards */}
+            <div className="team_cards_center team_flex">
+              {teamData.map((member, i) => (
+                <Link key={i} href={member.href} className="team_card">
+                  <div className={`team_image_wrapper ${member.imageClass}`}></div>
+
+                  {/* Social icon overlay (hidden by default, shown on hover via CSS) */}
+                  <div className="team_social_flex_box">
+                    <div className="social_link_round">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 30 30" fill="none" className="team_social_icon" dangerouslySetInnerHTML={{ __html: linkedInSvg }} />
+                    </div>
                   </div>
-                </div>
 
-                <div className="team_name_card">
-                  <h5 className="team_name">{member.name}</h5>
-                  <h5 className="team_occupation">{member.role}</h5>
-                </div>
-              </Link>
-            ))}
+                  <div className="team_name_card">
+                    <h5 className="team_name">{member.name}</h5>
+                    <h5 className="team_occupation">{member.role}</h5>
+                  </div>
+                </Link>
+              ))}
+            </div>
+
+            {/* Right Column — Studio Approach */}
+            <div className="team_editorial_col team_editorial_right">
+              <div className="team_editorial_eyebrow_wrap">
+                <span className="team_editorial_accent_line" />
+                <span className="team_editorial_eyebrow">OUR APPROACH</span>
+              </div>
+              <p className="team_editorial_statement">
+                &ldquo;From the first sketch to the final detail, every decision has a purpose.&rdquo;
+              </p>
+              <p className="team_editorial_text">
+                We combine creativity, technical expertise and a people-centric mindset to deliver spaces that are functional, timeless and deeply personal.
+              </p>
+            </div>
           </div>
 
           {/* =======================================================
@@ -247,7 +278,7 @@ export default function Team() {
 
         .team_container {
           width: 100%;
-          max-width: 83.33vw;
+          max-width: min(88vw, 1440px);
           margin: 0 auto;
           padding-top: 5vw;
           padding-bottom: 5vw;
@@ -319,8 +350,84 @@ export default function Team() {
           display: none;
         }
 
+        /* 3-Column Editorial Layout */
+        .team_editorial_layout {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: clamp(1.75rem, 3.5vw, 5rem);
+          width: 100%;
+          position: relative;
+        }
+
+        .team_editorial_col {
+          flex: 1 1 0;
+          max-width: clamp(230px, 19vw, 310px);
+          display: flex;
+          flex-direction: column;
+          gap: clamp(0.7rem, 1vw, 1.15rem);
+          z-index: 1;
+        }
+
+        .team_editorial_left {
+          text-align: left;
+        }
+
+        .team_editorial_right {
+          text-align: left;
+        }
+
+        .team_editorial_eyebrow_wrap {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.6rem;
+        }
+
+        .team_editorial_accent_line {
+          width: 1.4rem;
+          height: 1.5px;
+          background-color: #8B2635;
+          flex-shrink: 0;
+        }
+
+        .team_editorial_eyebrow {
+          font-family: var(--font-telegrafico), 'Telegrafico', sans-serif;
+          font-size: clamp(0.68rem, 0.74vw, 0.84rem);
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+          color: #8B2635;
+          font-weight: 500;
+        }
+
+        .team_editorial_statement {
+          font-family: 'Satoshi', sans-serif;
+          font-size: clamp(1.08rem, 1.25vw, 1.38rem);
+          line-height: 1.44;
+          font-weight: 500;
+          color: #1d2025;
+          margin: 0;
+          letter-spacing: -0.01em;
+        }
+
+        .team_editorial_text {
+          font-family: 'Satoshi', sans-serif;
+          font-size: clamp(0.82rem, 0.88vw, 0.96rem);
+          line-height: 1.7;
+          color: rgba(47, 52, 64, 0.72);
+          font-weight: 400;
+          margin: 0;
+        }
+
+        .team_cards_center {
+          display: flex;
+          gap: clamp(1.75rem, 3.5vw, 4.44vw);
+          justify-content: center;
+          align-items: center;
+          flex-shrink: 0;
+        }
+
         .team_flex {
-          gap: 4.44svw;
+          gap: clamp(1.75rem, 3.5vw, 4.44vw);
           justify-content: center;
           align-items: center;
           display: flex;
@@ -493,6 +600,29 @@ export default function Team() {
           color: rgba(255, 255, 255, 0.8);
           white-space: nowrap;
           text-align: center;
+        }
+
+        /* Desktop intermediate breakpoint scaling (992px - 1140px) */
+        @media (min-width: 992px) and (max-width: 1140px) {
+          .team_editorial_layout {
+            gap: 1.5rem;
+          }
+          .team_editorial_col {
+            max-width: 220px;
+          }
+          .team_cards_center {
+            gap: 1.5rem;
+          }
+          .team_card,
+          .team_image_wrapper {
+            min-width: 17vw;
+            max-width: 17vw;
+          }
+          .team_name_card,
+          .team_social_flex_box {
+            width: 16vw;
+            min-width: 190px;
+          }
         }
 
         /* ==========================================
