@@ -11,7 +11,7 @@ import Link from 'next/link';
 const statsData = [
   { target: 2.2, isFloat: true, unit: ' MILLION+', suffix: ' SQFT', label: 'TOTAL DESIGNED AREA' },
   { target: 1.7, isFloat: true, unit: ' MILLION+', suffix: ' SQFT', label: 'TOTAL EXECUTED AREA' },
-  { target: 121, isFloat: false, unit: '', suffix: '+', label: 'DESIGN PROJECTS' },
+  { target: 119, isFloat: false, unit: '', suffix: '+', label: 'DESIGN PROJECTS' },
 ];
 
 interface PanelConfig {
