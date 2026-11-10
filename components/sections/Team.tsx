@@ -13,7 +13,7 @@ const teamData = [
     imageClass: 'khantil',
     imageSrc: '/images/KP WI_result.jpg',
     imagePosition: 'center 15%',
-    href: '/#contact'
+    href: 'https://www.linkedin.com/in/khantil-panchal-b01092100?utm_source=share_via&utm_content=profile&utm_medium=member_ios'
   },
   {
     name: 'Surbhi Panchal',
@@ -22,7 +22,7 @@ const teamData = [
     imageClass: 'surbhi',
     imageSrc: '/images/SP WI_result.png',
     imagePosition: 'center 15%',
-    href: '/#contact'
+    href: 'https://www.linkedin.com/in/surbhi-patel-7319a5160?utm_source=share_via&utm_content=profile&utm_medium=member_ios'
   }
 ];
 
@@ -135,7 +135,7 @@ export default function Team() {
             {/* Centre Column — Existing Founder Cards */}
             <div className="team_cards_center team_flex">
               {teamData.map((member, i) => (
-                <Link key={i} href={member.href} className="team_card">
+                <Link key={i} href={member.href} className="team_card" target="_blank" rel="noopener noreferrer">
                   <div className={`team_image_wrapper ${member.imageClass}`}></div>
 
                   {/* Social icon overlay (hidden by default, shown on hover via CSS) */}
@@ -222,6 +222,8 @@ export default function Team() {
                           href={member.href}
                           className="team_mob_linkedin_btn"
                           aria-label={`${member.name} LinkedIn`}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           onClick={(e) => {
                             e.stopPropagation();
                           }}
