@@ -56,9 +56,11 @@ export default function SpecialityPage({
   // Dynamic image dimensions cache & measurement
   const [imageDimensions, setImageDimensions] = useState<Record<string, { width: number; height: number }>>({});
   const [viewportSize, setViewportSize] = useState({ width: 1200, height: 800 });
+  const isMobile = viewportSize.width <= 768;
 
   const recordDimensions = useCallback((src: string, width: number, height: number) => {
     if (!src || !width || !height) return;
+    if ((staticDimensions as Record<string, { width: number; height: number }>)[src]) return;
     setImageDimensions((prev) => {
       if (prev[src]?.width === width && prev[src]?.height === height) return prev;
       return { ...prev, [src]: { width, height } };
@@ -159,21 +161,25 @@ export default function SpecialityPage({
         img.onload = () => {
           recordDimensions(src, img.naturalWidth, img.naturalHeight);
         };
-        if ('decode' in img) {
+        if (!isMobile && 'decode' in img) {
           img.decode().catch(() => {});
         }
       }
     });
-  }, [lightboxOpen, activeImageIndex, currentImages]);
+  }, [lightboxOpen, activeImageIndex, currentImages, isMobile, recordDimensions]);
 
   // Touch handlers for mobile swipe
   const handleTouchStart = (e: React.TouchEvent) => {
     setTouchEnd(null);
-    setTouchStart(e.targetTouches[0].clientX);
+    if (e.targetTouches && e.targetTouches[0]) {
+      setTouchStart(e.targetTouches[0].clientX);
+    }
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
-    setTouchEnd(e.targetTouches[0].clientX);
+    if (e.targetTouches && e.targetTouches[0]) {
+      setTouchEnd(e.targetTouches[0].clientX);
+    }
   };
 
   const handleTouchEnd = () => {
@@ -229,7 +235,6 @@ export default function SpecialityPage({
   const projectMeta = getProjectDisplayMeta(currentProject);
 
   // Proportional sizing & viewport geometry for natural aspect ratios
-  const isMobile = viewportSize.width <= 768;
   const headerH = isMobile ? 60 : 75;
   const footerH = isMobile ? 95 : 105;
   const verticalPadding = isMobile ? 20 : 36;
@@ -578,7 +583,7 @@ export default function SpecialityPage({
                     width={c0.width}
                     height={c0.height}
                     priority
-                    unoptimized
+                    sizes="(max-width: 768px) 92vw, (max-width: 1200px) 78vw, 1280px"
                     className="sp-lb-img"
                   />
                 </div>
@@ -610,11 +615,15 @@ export default function SpecialityPage({
                         height={card.height}
                         priority={isCenter}
                         loading={isCenter ? "eager" : "lazy"}
-                        unoptimized
+                        sizes="(max-width: 768px) 92vw, (max-width: 1200px) 78vw, 1280px"
                         className="sp-lb-img"
                         onLoad={(e) => {
-                          const target = e.currentTarget;
-                          recordDimensions(card.src, target.naturalWidth, target.naturalHeight);
+                          try {
+                            const target = e.currentTarget;
+                            if (target && target.naturalWidth && target.naturalHeight) {
+                              recordDimensions(card.src, target.naturalWidth, target.naturalHeight);
+                            }
+                          } catch {}
                         }}
                       />
                       {!isCenter && <div className="sp-lb-card-veil" />}
