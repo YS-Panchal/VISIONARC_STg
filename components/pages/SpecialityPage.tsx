@@ -366,7 +366,7 @@ export default function SpecialityPage({
             onClick={(e) => handleTransition(e, '/', 'Vision Architecture')}
           >
             <Image
-              src="/images/va favicob.png"
+              src="/images/VA LOGO wh 2.png"
               alt="Vision Architecture"
               width={40}
               height={40}
