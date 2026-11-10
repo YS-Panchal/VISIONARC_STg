@@ -21,7 +21,7 @@ const teamData = [
     mobileRole: 'CO-FOUNDER · PRINCIPAL DESIGNER',
     imageClass: 'surbhi',
     imageSrc: '/images/SP WI_result.png',
-    imagePosition: 'center 10%',
+    imagePosition: 'center 15%',
     href: '/#contact'
   }
 ];

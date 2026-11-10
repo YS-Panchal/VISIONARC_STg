@@ -198,7 +198,7 @@ function PanelImageSlideshow({
         sizes="(max-width: 900px) 0vw, (max-width: 1280px) 25vw, 20vw"
         quality={90}
         priority={currentIdx === 0}
-        className={`hero-panel-img ${isTransitioning ? 'hero-img-exiting' : 'hero-img-active'}`}
+        className={`hero-panel-img hero-panel-img-${panelId} ${isTransitioning ? 'hero-img-exiting' : 'hero-img-active'}`}
       />
       {nextIdx !== null && (
         <Image
@@ -208,7 +208,7 @@ function PanelImageSlideshow({
           unoptimized
           sizes="(max-width: 900px) 0vw, (max-width: 1280px) 25vw, 20vw"
           quality={90}
-          className="hero-panel-img hero-img-entering"
+          className={`hero-panel-img hero-panel-img-${panelId} hero-img-entering`}
         />
       )}
     </div>
@@ -1061,6 +1061,9 @@ export default function Hero() {
           }
           .hero-panel-img {
             object-fit: cover;
+          }
+          .hero-panel-img-hospitality {
+            object-position: 70% center;
           }
           .hero-img-active {
             opacity: 1;

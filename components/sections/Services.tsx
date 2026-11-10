@@ -8,17 +8,17 @@ const servicesData = [
   {
     title: 'Thoughtful Planning',
     desc: 'Every successful design begins with a strong planning foundation. We study client requirements, site conditions, circulation, light, ventilation, privacy, and long-term functionality to create spaces that are practical, comfortable, and efficient.',
-    video: '/videos/scroll-1.mp4'
+    video: '/videos/Scroll VA1.webm'
   },
   {
     title: 'Refined Aesthetics',
     desc: 'Our design approach focuses on creating spaces with balance, elegance, and timeless appeal. Proportions, materials, textures, palettes, lighting, and detailing are curated for a clean, sophisticated, and cohesive design.',
-    video: '/videos/scroll-2.mp4'
+    video: '/videos/Scroll VA2.webm'
   },
   {
     title: 'Purposeful Execution',
     desc: 'We believe good design must be practical to execute for real site conditions. Every concept accounts for construction feasibility, material availability, budget awareness, and technical quality so the outcome stays true to the vision.',
-    video: '/videos/scroll-3.mp4'
+    video: '/videos/Scroll VA3.webm'
   }
 ];
 
@@ -70,7 +70,7 @@ export default function Services() {
                         muted 
                         preload="auto"
                       >
-                        <source src={service.video} type="video/mp4" />
+                        <source src={service.video} type="video/webm" />
                       </video>
                     </div>
                     
@@ -102,7 +102,7 @@ export default function Services() {
                   preload="auto"
                   style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }}
                 >
-                  <source src="/videos/scroll.mp4" type="video/mp4" />
+                  <source src="/videos/Scroll VA.webm" type="video/webm" />
                 </video>
               </div>
             </div>
@@ -120,7 +120,7 @@ export default function Services() {
                       muted 
                       preload="auto"
                     >
-                      <source src={servicesData[2].video} type="video/mp4" />
+                      <source src={servicesData[2].video} type="video/webm" />
                     </video>
                   </div>
                   

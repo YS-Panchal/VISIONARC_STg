@@ -240,6 +240,9 @@ export default function Works() {
             object-fit: cover;
             border-radius: var(--border-radius);
           }
+          .work-image._02 {
+            object-position: 70% center;
+          }
 
           /* Dimming overlay */
           .works-overlay {
