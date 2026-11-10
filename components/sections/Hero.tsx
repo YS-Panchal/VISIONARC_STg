@@ -1400,19 +1400,19 @@ export default function Hero() {
           @media (max-width: 900px) {
             #hero {
               height: auto !important;
-              min-height: 100vh !important;
+              min-height: 0 !important;
             }
             .hero-split-container {
               flex-direction: column;
-              padding-top: 5rem;
-              padding-bottom: 1rem;
+              padding-top: clamp(4.5rem, 12vw, 5.5rem);
+              padding-bottom: 0.25rem;
             }
             .hero-left-col {
               width: 100%;
-              padding: 2rem 0 1rem;
+              padding: 1.25rem 0 0.5rem;
             }
             .hero-left-inner {
-              padding: 0 6%;
+              padding: 0 5%;
               max-width: 100%;
               margin: 0;
             }
@@ -1421,49 +1421,106 @@ export default function Hero() {
               display: none !important;
             }
             .hero-headline {
-              font-size: clamp(2.2rem, 9vw, 3.2rem);
+              font-size: clamp(2rem, 8.5vw, 3rem);
+              margin-bottom: 1rem;
             }
             .hero-paragraph {
-              font-size: 0.94rem;
+              font-size: 0.92rem;
+              line-height: 1.65;
               max-width: 100%;
-              margin-bottom: 2rem;
+              margin-bottom: 1.5rem;
             }
             .hero-ctas {
-              margin-bottom: 0;
+              margin-bottom: 1.5rem;
               flex-direction: row;
               flex-wrap: nowrap;
-              gap: 0.6rem;
+              gap: 0.5rem;
               width: 100%;
             }
             .hero-cta-primary,
             .hero-cta-secondary {
               flex: 1 1 0;
               justify-content: center;
-              font-size: clamp(0.7rem, 2.8vw, 0.85rem);
-              padding: 0.75rem 0.6rem;
+              font-size: clamp(0.68rem, 2.6vw, 0.82rem);
+              padding: 0.75rem 0.4rem;
               white-space: nowrap;
             }
             .hero-stats-bar {
-              margin-top: auto;
+              margin-top: 0.5rem;
+              padding: 0.9rem 2%;
+              background-color: #FAFAF8;
+              border-top: 1px solid rgba(47, 52, 64, 0.12);
+              border-bottom: 1px solid rgba(47, 52, 64, 0.08);
             }
             .hero-stats-inner {
+              display: flex;
+              flex-direction: row;
               flex-wrap: nowrap;
               gap: 0;
               justify-content: space-between;
+              align-items: stretch;
+              width: 100%;
+              max-width: 100%;
             }
             .hero-stat-item {
               flex: 1 1 0;
-              padding: 0.4rem 0.2rem;
+              min-width: 0 !important;
+              padding: 0.2rem 0.25rem;
               text-align: center;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              position: relative;
             }
             .hero-stat-item:not(:last-child)::after {
-              display: none;
+              display: block !important;
+              content: '';
+              position: absolute;
+              right: 0;
+              top: 15%;
+              height: 70%;
+              width: 1px;
+              background: rgba(47, 52, 64, 0.12);
             }
             .hero-va-stat-number {
-              font-size: clamp(1.4rem, 5.5vw, 2rem) !important;
+              font-size: clamp(1.1rem, 4.3vw, 1.45rem) !important;
+              line-height: 1.1;
+              display: flex;
+              flex-direction: row;
+              flex-wrap: wrap;
+              justify-content: center;
+              align-items: baseline;
+              gap: 1px;
+              white-space: normal !important;
+            }
+            .hero-va-stat-num-val {
+              font-family: inherit;
+              font-size: inherit;
+              font-weight: 700;
+            }
+            .hero-va-stat-unit {
+              font-family: inherit;
+              font-size: clamp(0.48rem, 1.8vw, 0.62rem) !important;
+              color: #2f3440;
+              letter-spacing: -0.01em;
+              margin-left: 2px;
+            }
+            .hero-va-stat-suffix {
+              font-family: inherit;
+              font-size: clamp(0.44rem, 1.6vw, 0.56rem) !important;
+              color: #8B2635;
+              margin-left: 1px;
             }
             .hero-stat-label {
-              font-size: clamp(0.48rem, 1.8vw, 0.6rem);
+              font-family: var(--font-telegrafico), 'Telegrafico', sans-serif;
+              font-size: clamp(0.44rem, 1.55vw, 0.54rem) !important;
+              letter-spacing: 0.04em;
+              color: rgba(47, 52, 64, 0.65);
+              margin-top: 0.3rem;
+              white-space: normal !important;
+              line-height: 1.25;
+              text-align: center;
             }
             .hero-logo-container {
               z-index: 15;

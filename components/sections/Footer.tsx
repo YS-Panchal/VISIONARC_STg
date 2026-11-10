@@ -22,7 +22,7 @@ export default function Footer() {
             {/* Social Links — spans 3 cols */}
             <div className="footer-col footer-col-1">
               <h5 className="footer-heading">Follow us on</h5>
-              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', gap: '1rem' }}>
+              <ul className="footer-social-list" style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', gap: '1rem' }}>
                 <li>
                   <a href="https://www.linkedin.com/company/vision-architecture-india" target="_blank" rel="noopener noreferrer" className="footer-social-link">
                     <svg xmlns="http://www.w3.org/2000/svg" width="2.5rem" height="2.5rem" viewBox="0 0 50 50" fill="none">
@@ -53,11 +53,11 @@ export default function Footer() {
             {/* Contacts — spans 4 cols */}
             <div className="footer-col footer-col-3">
               <h5 className="footer-heading">Contacts</h5>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
+              <div className="footer-contacts-wrap" style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
                 <a href="mailto:info.visionarchitecture@gmail.com" className="footer-text footer-contact-link" style={{ textDecoration: 'none', color: 'inherit' }}>
                   info.visionarchitecture@gmail.com
                 </a>
-                <div style={{ display: 'flex', flexFlow: 'row wrap', gap: '0.4rem 0.8rem', alignItems: 'center' }}>
+                <div className="footer-phone-wrap" style={{ display: 'flex', flexFlow: 'row wrap', gap: '0.4rem 0.8rem', alignItems: 'center' }}>
                   <a href="tel:+919687688373" className="footer-text footer-contact-link" style={{ textDecoration: 'none', color: 'inherit', whiteSpace: 'nowrap' }}>
                     +91 96876 88373
                   </a>
@@ -373,17 +373,37 @@ export default function Footer() {
               text-align: center;
             }
             .footer-col {
-              align-items: center;
+              align-items: center !important;
+              text-align: center !important;
+              width: 100%;
             }
             .footer-heading {
-              font-size: 2.5vw;
+              font-size: clamp(0.85rem, 3.2vw, 1.1rem);
+              text-align: center !important;
+              width: 100%;
             }
             .footer-text {
-              font-size: 3vw;
+              font-size: clamp(0.82rem, 3vw, 1rem);
+              text-align: center !important;
+              width: 100%;
+            }
+            .footer-social-list {
+              justify-content: center !important;
+              width: 100%;
+            }
+            .footer-contacts-wrap {
+              align-items: center !important;
+              text-align: center !important;
+              width: 100%;
+            }
+            .footer-phone-wrap {
+              justify-content: center !important;
+              width: 100%;
             }
             .coa-badge-container {
-              justify-content: center;
-              max-width: 120px;
+              justify-content: center !important;
+              margin: 0.5rem auto 0 !important;
+              max-width: 140px;
             }
             .cut-wrapper {
               display: none !important;
@@ -392,31 +412,40 @@ export default function Footer() {
               display: none !important;
             }
             .footer_links {
-              grid-column-gap: 2rem;
-              grid-row-gap: 2rem;
+              grid-column-gap: 1.5rem;
+              grid-row-gap: 1.5rem;
               flex-flow: column;
+              align-items: center !important;
+              justify-content: center !important;
+              text-align: center !important;
             }
             .footer_links.top_links {
               border-bottom: 1px solid var(--charcoal-blue, #2f3440);
-              padding-top: 2rem;
-              padding-bottom: 2rem;
+              padding-top: 1.5rem;
+              padding-bottom: 1.5rem;
+            }
+            .footer_link {
+              text-align: center !important;
             }
             .footer_link_text {
-              font-size: 2.5vw;
+              font-size: clamp(0.85rem, 2.8vw, 1.05rem);
+              text-align: center !important;
             }
             .footer-copyright {
-              font-size: 2.85vw;
+              font-size: clamp(0.75rem, 2.6vw, 0.95rem);
               line-height: 140%;
+              text-align: center !important;
+              width: 100%;
             }
           }
 
           /* ===== Responsive — Mobile (max 478px) ===== */
           @media (max-width: 478px) {
             .footer-heading {
-              font-size: 3.5vw;
+              font-size: clamp(0.85rem, 3.8vw, 1.05rem);
             }
             .footer-text {
-              font-size: 4vw;
+              font-size: clamp(0.82rem, 3.6vw, 0.98rem);
             }
             .cut-wrapper {
               display: none !important;
@@ -425,10 +454,10 @@ export default function Footer() {
               display: none !important;
             }
             .footer_link_text {
-              font-size: 4vw;
+              font-size: clamp(0.85rem, 3.8vw, 1.05rem);
             }
             .footer-copyright {
-              font-size: 4vw;
+              font-size: clamp(0.75rem, 3.4vw, 0.95rem);
             }
           }
         `

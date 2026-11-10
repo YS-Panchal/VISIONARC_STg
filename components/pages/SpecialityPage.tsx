@@ -361,7 +361,7 @@ export default function SpecialityPage({
             onClick={(e) => handleTransition(e, '/', 'Vision Architecture')}
           >
             <Image
-              src="/images/VA LOGO wh 2.png"
+              src="/images/va favicob.png"
               alt="Vision Architecture"
               width={40}
               height={40}
@@ -479,7 +479,7 @@ export default function SpecialityPage({
             </div>
             <div style={{ textAlign: 'right' }}>
               <p>info.visionarchitecture@gmail.com</p>
-              <p>+91 96876 88373 | +91 73592 19598</p>
+              <p>+91 96876 88373</p>
             </div>
           </div>
           <DigitalCredit variant="speciality" />
@@ -526,12 +526,12 @@ export default function SpecialityPage({
           <header className="sp-lb-header">
             <div className="sp-lb-brand">
               <Image
-                src="/images/VA LOGO wh 2.png"
+                src="/images/va favicob.png"
                 alt="Vision Architecture"
-                width={140}
-                height={40}
+                width={130}
+                height={68}
                 className="sp-lb-brand-logo"
-                style={{ objectFit: 'contain', height: 'auto', maxHeight: '32px' }}
+                style={{ objectFit: 'contain', height: 'auto', maxHeight: '36px' }}
                 priority
               />
             </div>
