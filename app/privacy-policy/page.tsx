@@ -6,6 +6,9 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Privacy Policy | Vision Architecture',
   description: 'Learn how Vision Architecture collects, uses, and protects your information when you visit our website or get in touch.',
+  alternates: {
+    canonical: '/privacy-policy',
+  },
 };
 
 export default function PrivacyPolicyPage() {

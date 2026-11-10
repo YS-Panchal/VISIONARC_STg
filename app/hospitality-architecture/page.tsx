@@ -1,8 +1,20 @@
+import type { Metadata } from 'next';
 import SpecialityPage from '@/components/pages/SpecialityPage';
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Hospitality Architecture | Vision Architecture | Gujarat',
   description: 'Hospitality architecture portfolio by Vision Architecture — luxury resorts, banquets, theme restaurants, and 4-star hotels across Gujarat.',
+  alternates: {
+    canonical: '/hospitality-architecture',
+  },
+  openGraph: {
+    title: 'Hospitality Architecture | Vision Architecture | Gujarat',
+    description: 'Hospitality architecture portfolio by Vision Architecture — luxury resorts, banquets, theme restaurants, and 4-star hotels across Gujarat.',
+    url: 'https://visionarchitecture.in/hospitality-architecture',
+    siteName: 'Vision Architecture',
+    locale: 'en_IN',
+    type: 'website',
+  },
 };
 
 const projects = [

@@ -6,6 +6,9 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Terms & Conditions | Vision Architecture',
   description: 'Review the terms and conditions governing the use of the Vision Architecture website, portfolio content, and architectural enquiry services.',
+  alternates: {
+    canonical: '/terms-and-conditions',
+  },
 };
 
 export default function TermsAndConditionsPage() {

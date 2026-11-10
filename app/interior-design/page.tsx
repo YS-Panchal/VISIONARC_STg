@@ -1,8 +1,20 @@
+import type { Metadata } from 'next';
 import SpecialityPage from '@/components/pages/SpecialityPage';
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Interior Design | Vision Architecture | Ahmedabad, Gujarat',
   description: 'Bespoke interior design projects by Vision Architecture in Ahmedabad — luxury private residences, penthouses, and corporate workspaces.',
+  alternates: {
+    canonical: '/interior-design',
+  },
+  openGraph: {
+    title: 'Interior Design | Vision Architecture | Ahmedabad, Gujarat',
+    description: 'Bespoke interior design projects by Vision Architecture in Ahmedabad — luxury private residences, penthouses, and corporate workspaces.',
+    url: 'https://visionarchitecture.in/interior-design',
+    siteName: 'Vision Architecture',
+    locale: 'en_IN',
+    type: 'website',
+  },
 };
 
 const projects = [

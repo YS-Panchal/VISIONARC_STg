@@ -1,8 +1,20 @@
+import type { Metadata } from 'next';
 import SpecialityPage from '@/components/pages/SpecialityPage';
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Renovation & Planning | Vision Architecture | Ahmedabad, Gujarat',
   description: 'Renovation and planning portfolio by Vision Architecture in Ahmedabad — transforming existing villas, bungalows, and residences with contemporary design.',
+  alternates: {
+    canonical: '/renovation',
+  },
+  openGraph: {
+    title: 'Renovation & Planning | Vision Architecture | Ahmedabad, Gujarat',
+    description: 'Renovation and planning portfolio by Vision Architecture in Ahmedabad — transforming existing villas, bungalows, and residences with contemporary design.',
+    url: 'https://visionarchitecture.in/renovation',
+    siteName: 'Vision Architecture',
+    locale: 'en_IN',
+    type: 'website',
+  },
 };
 
 const projects = [

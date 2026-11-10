@@ -6,6 +6,9 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Cookie Policy | Vision Architecture',
   description: 'Understand how Vision Architecture uses cookies and local browser storage to optimize site performance and preserve user preferences.',
+  alternates: {
+    canonical: '/cookie-policy',
+  },
 };
 
 export default function CookiePolicyPage() {

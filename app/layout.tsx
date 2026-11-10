@@ -11,14 +11,47 @@ import './globals.css';
 export const metadata: Metadata = {
   metadataBase: new URL('https://visionarchitecture.in'),
   title: 'Vision Architecture | Where Vision Meets Precision',
-  description: 'Vision Architecture is a forward-thinking firm specializing in architecture, interior design, landscape planning, and sustainable developments.',
-  keywords: ['architecture', 'interior design', 'landscape', 'Gujarat', 'Ahmedabad'],
+  description: 'Vision Architecture is a premier architectural and interior design firm in Ahmedabad, Gujarat — specializing in luxury residential, hospitality, commercial, and renovation projects.',
+  keywords: [
+    'Vision Architecture',
+    'architecture firm Ahmedabad',
+    'architects in Gujarat',
+    'interior design Ahmedabad',
+    'hospitality architecture Gujarat',
+    'luxury residential architects',
+    'renovation architects Ahmedabad',
+    'Khantil Panchal',
+    'Surbhi Panchal',
+  ],
+  authors: [{ name: 'Vision Architecture' }],
+  creator: 'Vision Architecture',
+  publisher: 'Vision Architecture',
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     title: 'Vision Architecture | Where Vision Meets Precision',
-    description: 'Specializing in architecture, interior design, and landscape planning across Gujarat.',
-    type: 'website',
-    locale: 'en_IN',
+    description: 'Premier architecture, hospitality architecture, interior design, and renovation firm in Ahmedabad, Gujarat. Over 2.2M+ sq. ft. designed.',
+    url: 'https://visionarchitecture.in',
     siteName: 'Vision Architecture',
+    locale: 'en_IN',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Vision Architecture | Where Vision Meets Precision',
+    description: 'Premier architecture, hospitality architecture, interior design, and renovation firm in Ahmedabad, Gujarat.',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 

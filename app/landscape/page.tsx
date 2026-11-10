@@ -1,5 +1,5 @@
-import HospitalityArchitecture, { metadata as hospitalityMetadata } from '../hospitality-architecture/page';
+import { redirect } from 'next/navigation';
 
-export const metadata = hospitalityMetadata;
-
-export default HospitalityArchitecture;
+export default function LandscapeRedirect() {
+  redirect('/hospitality-architecture');
+}
