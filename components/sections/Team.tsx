@@ -20,7 +20,7 @@ const teamData = [
     role: 'CO-FOUNDER · PRINCIPAL DESIGNER',
     mobileRole: 'CO-FOUNDER · PRINCIPAL DESIGNER',
     imageClass: 'surbhi',
-    imageSrc: '/images/SP WI_result.jpg',
+    imageSrc: '/images/SP WI_result.png',
     imagePosition: 'center 10%',
     href: '/#contact'
   }
@@ -473,7 +473,7 @@ export default function Team() {
         }
 
         .team_image_wrapper.surbhi {
-          background-image: url('/images/SP WI_result.jpg');
+          background-image: url('/images/SP WI_result.png');
         }
 
         .team_social_flex_box {

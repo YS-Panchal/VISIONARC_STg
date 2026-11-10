@@ -53,9 +53,6 @@ const panelsConfig: PanelConfig[] = [
     href: '/hospitality-architecture',
     transitionTitle: 'Hospitality Architecture',
     images: [
-      '/images/Projects/PROJECTS WEBP/Hospitality Architecture/SANTORINI RESORT BHARUCH/vision-architecture-santorini-luxury-resort-bharuch-gujarat-01.webp',
-      '/images/Projects/PROJECTS WEBP/Hospitality Architecture/THE ARC BANQUET AND RESTAURANT/vision-architecture-the-arc-elliptical-banquet-restaurant-ahmedabad-01.webp',
-      '/images/Projects/PROJECTS WEBP/Hospitality Architecture/THE VAAV THEME RESTAURANT/vision-architecture-the-vaav-stepwell-theme-restaurant-banquet-ahmedabad-01.webp',
       '/images/Projects/PROJECTS WEBP/Hospitality Architecture/THE CROWN BY KINGS KRAFT/vision-architecture-the-crown-kings-kraft-4star-hotel-ahmedabad-01.webp',
     ],
     restOffset: 18,
@@ -69,10 +66,7 @@ const panelsConfig: PanelConfig[] = [
     href: '/interior-design',
     transitionTitle: 'Interior Design',
     images: [
-      '/images/Projects/PROJECTS WEBP/Interior Design/MR GAURANG PATEL PRIVATE RESIDENCE/vision-architecture-gaurang-patel-4bhk-interior-design-ahmedabad-01.webp',
-      '/images/Projects/PROJECTS WEBP/Interior Design/MR LINAY PATEL PRIVATE RESIDENCE/vision-architecture-linay-patel-house-of-warmth-interiors-ahmedabad-01.webp',
-      '/images/Projects/PROJECTS WEBP/Interior Design/MR VIJAY PANCHAL PRIVATE RESIDENCE/vision-architecture-vijay-panchal-5bhk-penthouse-interiors-ahmedabad-01.webp',
-      '/images/Projects/PROJECTS WEBP/Interior Design/SARK EPC PVT LTD/vision-architecture-sark-epc-corporate-office-interiors-ahmedabad-01.webp',
+      '/images/Projects/PROJECTS WEBP/Interior Design/MR LINAY PATEL PRIVATE RESIDENCE/vision-architecture-linay-patel-house-of-warmth-interiors-ahmedabad-11.webp',
     ],
     restOffset: -18,
     breathAmp: 5,
@@ -85,10 +79,7 @@ const panelsConfig: PanelConfig[] = [
     href: '/renovation',
     transitionTitle: 'Renovation & Planning',
     images: [
-      '/images/Projects/PROJECTS WEBP/Renovation & Planning/MR SURESH CHAUHAN PRIVATE RESIDENCE/vision-architecture-suresh-chauhan-heritage-residence-renovation-ahmedabad-01.webp',
-      '/images/Projects/PROJECTS WEBP/Renovation & Planning/MR URVISH TRIVEDI PRIVATE RESIDENCE/vision-architecture-urvish-trivedi-bungalow-renovation-ahmedabad-01.webp',
-      '/images/Projects/PROJECTS WEBP/Renovation & Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-01.webp',
-      '/images/Projects/PROJECTS WEBP/Renovation & Planning/SHANKAR PRAJAPATI PRIVATE RESIDENCE/vision-architecture-shankar-prajapati-de-elegante-villa-renovation-ahmedabad-01.webp',
+      '/images/Projects/PROJECTS WEBP/Renovation & Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-02.webp',
     ],
     restOffset: 18,
     breathAmp: 5,

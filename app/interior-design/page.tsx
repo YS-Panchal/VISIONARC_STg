@@ -7,6 +7,7 @@ export const metadata = {
 
 const projects = [
   {
+    "coverImage": "/images/Projects/PROJECTS WEBP/Interior Design/MR DIPESH JHAVERI PRIVATE RESIDENCE/vision-architecture-dipesh-jhaveri-double-height-luxury-residence-ahmedabad-09.webp",
     "images": [
       "/images/Projects/PROJECTS WEBP/Interior Design/MR DIPESH JHAVERI PRIVATE RESIDENCE/vision-architecture-dipesh-jhaveri-double-height-luxury-residence-ahmedabad-17.webp",
       "/images/Projects/PROJECTS WEBP/Interior Design/MR DIPESH JHAVERI PRIVATE RESIDENCE/vision-architecture-dipesh-jhaveri-double-height-luxury-residence-ahmedabad-01.webp",
@@ -33,7 +34,7 @@ const projects = [
       "Luxury Residence",
       "Double-Height Living",
       "Rich Materials",
-      "Ahmedabad"
+      "Jamnagar"
     ]
   },
   {
@@ -57,6 +58,7 @@ const projects = [
     ]
   },
   {
+    "coverImage": "/images/Projects/PROJECTS WEBP/Interior Design/MR LINAY PATEL PRIVATE RESIDENCE/vision-architecture-linay-patel-house-of-warmth-interiors-ahmedabad-12.webp",
     "images": [
       "/images/Projects/PROJECTS WEBP/Interior Design/MR LINAY PATEL PRIVATE RESIDENCE/vision-architecture-linay-patel-house-of-warmth-interiors-ahmedabad-01.webp",
       "/images/Projects/PROJECTS WEBP/Interior Design/MR LINAY PATEL PRIVATE RESIDENCE/vision-architecture-linay-patel-house-of-warmth-interiors-ahmedabad-02.webp",
@@ -119,7 +121,7 @@ const projects = [
     "title": "SARK EPC PVT. LTD. CORPORATE OFFICE",
     "description": "A modern corporate office designed for SARK EPC Pvt. Ltd. focusing on functional zoning, sleek glass partitions, ergonomic workspaces and a commanding corporate aesthetic.",
     "tags": [
-      "Corporate Office",
+      "5000 Sq. Feet Corporate Office",
       "Commercial Interior",
       "Modern Workplace",
       "Ahmedabad"

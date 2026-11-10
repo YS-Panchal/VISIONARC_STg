@@ -24,10 +24,11 @@ const projects = [
       "Residential",
       "High-Rise",
       "Luxury 3BHK",
-      "Ahmedabad"
+      "Baroda"
     ]
   },
   {
+    "coverImage": "/images/Projects/PROJECTS WEBP/Architecture/MR DHIREN SHAH PRIVATE RESIDENCE/vision-architecture-dhiren-shah-private-residence-ahmedabad-13.webp",
     "images": [
       "/images/Projects/PROJECTS WEBP/Architecture/MR DHIREN SHAH PRIVATE RESIDENCE/vision-architecture-dhiren-shah-private-residence-ahmedabad-01.webp",
       "/images/Projects/PROJECTS WEBP/Architecture/MR DHIREN SHAH PRIVATE RESIDENCE/vision-architecture-dhiren-shah-private-residence-ahmedabad-02.webp",
@@ -65,12 +66,12 @@ const projects = [
     "description": "A contemporary residence designed with exposed brick, clean volumes, glass balconies and soft landscape pockets. The façade carries a warm yet bold expression, creating a home that feels grounded, modern and naturally elegant.",
     "tags": [
       "Private Residence",
-      "Exposed Brick",
       "Glass Balconies",
       "Ahmedabad"
     ]
   },
   {
+    "coverImage": "/images/Projects/PROJECTS WEBP/Architecture/NITIN THAKKAR PRIVATE RESIDENCE/vision-architecture-nitin-thakkar-modern-residence-ahmedabad-07.webp",
     "images": [
       "/images/Projects/PROJECTS WEBP/Architecture/NITIN THAKKAR PRIVATE RESIDENCE/vision-architecture-nitin-thakkar-modern-residence-ahmedabad-01.webp",
       "/images/Projects/PROJECTS WEBP/Architecture/NITIN THAKKAR PRIVATE RESIDENCE/vision-architecture-nitin-thakkar-modern-residence-ahmedabad-02.webp",
@@ -110,6 +111,7 @@ const projects = [
     ]
   },
   {
+    "coverImage": "/images/Projects/PROJECTS WEBP/Architecture/SARVASV (VINAY JOSHI RESIDENCE)/vision-architecture-sarvasva-vinay-joshi-luxury-bungalow-ahmedabad-08.webp",
     "images": [
       "/images/Projects/PROJECTS WEBP/Architecture/SARVASV (VINAY JOSHI RESIDENCE)/vision-architecture-sarvasva-vinay-joshi-luxury-bungalow-ahmedabad-02.webp",
       "/images/Projects/PROJECTS WEBP/Architecture/SARVASV (VINAY JOSHI RESIDENCE)/vision-architecture-sarvasva-vinay-joshi-luxury-bungalow-ahmedabad-03.webp",

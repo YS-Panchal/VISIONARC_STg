@@ -9,6 +9,7 @@ import staticDimensions from '@/lib/constants/imageDimensions.json';
 
 interface ProjectCard {
   images: string[];
+  coverImage?: string;
   alt: string;
   title: string;
   description: string;
@@ -406,9 +407,9 @@ export default function SpecialityPage({
             return (
               <div key={i} id={slug} className="sp-project-card">
                 <div className="sp-project-image-wrapper" onClick={() => openLightbox(i)}>
-                  {project.images && project.images[0] && (
+                  {(project.coverImage || (project.images && project.images[0])) && (
                     <Image
-                    src={project.images[0]}
+                    src={project.coverImage || project.images[0]}
                     alt={project.alt}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

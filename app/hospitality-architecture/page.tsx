@@ -51,6 +51,7 @@ const projects = [
     ]
   },
   {
+    "coverImage": "/images/Projects/PROJECTS WEBP/Hospitality Architecture/THE VAAV THEME RESTAURANT/vision-architecture-the-vaav-stepwell-theme-restaurant-banquet-ahmedabad-11.webp",
     "images": [
       "/images/Projects/PROJECTS WEBP/Hospitality Architecture/THE VAAV THEME RESTAURANT/vision-architecture-the-vaav-stepwell-theme-restaurant-banquet-ahmedabad-01.webp",
       "/images/Projects/PROJECTS WEBP/Hospitality Architecture/THE VAAV THEME RESTAURANT/vision-architecture-the-vaav-stepwell-theme-restaurant-banquet-ahmedabad-07.webp",
@@ -92,7 +93,7 @@ const projects = [
       "10-Storey Hotel",
       "4-Star Address",
       "10,000 Sq.Ft. Banquet",
-      "Ahmedabad"
+      "Rajkot"
     ]
   }
 ];

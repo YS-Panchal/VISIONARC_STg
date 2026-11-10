@@ -42,36 +42,47 @@ export default function AssociatedCompanies() {
 
           {/* Logos Grid */}
           <div className="associated_companies_logos">
-            {/* Left: H1 */}
-            <div className="company_logo_wrapper">
+            {/* 1: Visiontec (H1) */}
+            <div className="company_logo_wrapper logo_wide">
               <Image 
                 src="/images/H 1.png" 
-                alt="H1 Logo" 
+                alt="Visiontec Logo" 
                 width={300}
                 height={100}
                 className="company_logo" 
               />
             </div>
 
-            {/* Center: VHPL (Parent Company - Center & Prominent) */}
-            <div className="company_logo_wrapper main_parent">
+            {/* 2: VHPL */}
+            <div className="company_logo_wrapper logo_wide">
               <Image 
                 src="/images/VHPL BLACK RED.png" 
                 alt="VHPL Logo" 
                 width={400}
                 height={150}
-                className="company_logo parent_logo" 
+                className="company_logo" 
               />
             </div>
 
-            {/* Right: Vision Airtech */}
-            <div className="company_logo_wrapper">
+            {/* 3: Vision Airtech */}
+            <div className="company_logo_wrapper logo_wide">
               <Image 
                 src="/images/VISION AIRTECH.png" 
                 alt="Vision Airtech Logo" 
                 width={300}
                 height={100}
                 className="company_logo" 
+              />
+            </div>
+
+            {/* 4: Gravitas */}
+            <div className="company_logo_wrapper logo_square">
+              <Image 
+                src="/images/gravitas.png" 
+                alt="Gravitas Hospitalities Logo" 
+                width={300}
+                height={300}
+                className="company_logo company_logo_square" 
               />
             </div>
           </div>
@@ -89,36 +100,44 @@ export default function AssociatedCompanies() {
           display: flex;
           justify-content: center;
           align-items: center;
-          gap: 7vw;
+          gap: clamp(2.5rem, 5vw, 6vw);
           margin-top: 5vw;
           width: 100%;
+          max-width: 78vw;
+          margin-left: auto;
+          margin-right: auto;
         }
 
         .company_logo_wrapper {
           display: flex;
           justify-content: center;
           align-items: center;
-          flex: 1;
-          max-width: 16vw;
           transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .company_logo_wrapper.main_parent {
-          max-width: 24vw;
+        .company_logo_wrapper.logo_wide {
+          flex: 1 1 22%;
+          max-width: 19vw;
+          height: 4.8vw;
+        }
+
+        .company_logo_wrapper.logo_square {
+          flex: 0 0 auto;
+          width: 9vw;
+          height: 6.8vw;
         }
 
         .company_logo {
           width: 100%;
-          height: auto;
-          max-height: 4.5vw;
+          height: 100%;
           object-fit: contain;
-          filter: grayscale(1) opacity(0.55);
+          filter: grayscale(1) opacity(0.65);
           transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .company_logo_wrapper.main_parent .company_logo {
-          max-height: 7vw;
-          filter: grayscale(1) opacity(0.85);
+        .company_logo_square {
+          max-height: 100%;
+          transform: scale(1.15);
         }
 
         /* Premium hover states */
@@ -131,29 +150,47 @@ export default function AssociatedCompanies() {
         }
 
         /* Responsive breakpoints */
+        @media (max-width: 1024px) {
+          .associated_companies_logos {
+            max-width: 92vw;
+            gap: 2.5rem;
+          }
+
+          .company_logo_wrapper.logo_wide {
+            max-width: 22vw;
+            height: 6vw;
+          }
+
+          .company_logo_wrapper.logo_square {
+            width: 11vw;
+            height: 8vw;
+          }
+        }
+
         @media (max-width: 768px) {
           .associated_companies_logos {
             flex-direction: column;
-            gap: 4rem;
+            gap: 3.5rem;
             margin-top: 4rem;
+            max-width: 100%;
           }
 
-          .company_logo_wrapper {
-            max-width: 55%;
+          .company_logo_wrapper.logo_wide {
+            max-width: 60%;
+            height: 4rem;
           }
 
-          .company_logo_wrapper.main_parent {
-            max-width: 70%;
+          .company_logo_wrapper.logo_square {
+            width: 8rem;
+            height: 6.5rem;
           }
 
           .company_logo {
-            max-height: 3.5rem;
             filter: grayscale(0) opacity(1);
           }
 
-          .company_logo_wrapper.main_parent .company_logo {
-            max-height: 5.5rem;
-            filter: grayscale(0) opacity(1);
+          .company_logo_square {
+            transform: scale(1.1);
           }
         }
       `}} />

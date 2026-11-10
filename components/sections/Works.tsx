@@ -18,21 +18,21 @@ const worksData = [
     id: '_02',
     title: 'Hospitality Architecture',
     tags: ['Luxury Resorts', 'Elliptical Banquets', '4-Star Hotels'],
-    image: '/images/Projects/PROJECTS WEBP/Hospitality Architecture/SANTORINI RESORT BHARUCH/vision-architecture-santorini-luxury-resort-bharuch-gujarat-01.webp',
+    image: '/images/Projects/PROJECTS WEBP/Hospitality Architecture/THE CROWN BY KINGS KRAFT/vision-architecture-the-crown-kings-kraft-4star-hotel-ahmedabad-01.webp',
     href: '/hospitality-architecture',
   },
   {
     id: '_03',
     title: 'Interior Design',
     tags: ['Luxury Residences', 'Corporate Offices', 'Penthouses'],
-    image: '/images/Projects/PROJECTS WEBP/Interior Design/MR DIPESH JHAVERI PRIVATE RESIDENCE/vision-architecture-dipesh-jhaveri-double-height-luxury-residence-ahmedabad-17.webp',
+    image: '/images/Projects/PROJECTS WEBP/Interior Design/MR LINAY PATEL PRIVATE RESIDENCE/vision-architecture-linay-patel-house-of-warmth-interiors-ahmedabad-11.webp',
     href: '/interior-design',
   },
   {
     id: '_04',
     title: 'Renovation and Planning',
     tags: ['Modern Transformation', 'Heritage Preservation', 'Spatial Refinement'],
-    image: '/images/Projects/PROJECTS WEBP/Renovation & Planning/MR SURESH CHAUHAN PRIVATE RESIDENCE/vision-architecture-suresh-chauhan-heritage-residence-renovation-ahmedabad-07.webp',
+    image: '/images/Projects/PROJECTS WEBP/Renovation & Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-02.webp',
     href: '/renovation',
   }
 ];
