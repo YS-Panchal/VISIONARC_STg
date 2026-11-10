@@ -48,6 +48,7 @@ body {
   color: var(--color-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 /* Headings hierarchy — exact from reference lines 312-317 */
