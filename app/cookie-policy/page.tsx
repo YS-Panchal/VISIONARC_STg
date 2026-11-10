@@ -301,10 +301,6 @@ export default function CookiePolicyPage() {
                 Phone:{' '}
                 <a href="tel:+919687688373" className="text-[#2f3440] hover:text-[#8B2635]">
                   +91 96876 88373
-                </a>{' '}
-                / {' '}
-                <a href="tel:+917359219598" className="text-[#2f3440] hover:text-[#8B2635]">
-                  +91 73592 19598
                 </a>
               </p>
             </div>

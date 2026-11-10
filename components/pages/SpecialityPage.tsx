@@ -525,11 +525,15 @@ export default function SpecialityPage({
           {/* Top Header */}
           <header className="sp-lb-header">
             <div className="sp-lb-brand">
-              <div className="sp-lb-brand-text">
-                <span className="sp-lb-brand-main">VISION</span>
-                <span className="sp-lb-brand-sub">ARCHITECTURE</span>
-              </div>
-              <div className="sp-lb-brand-line" />
+              <Image
+                src="/images/VA LOGO wh 2.png"
+                alt="Vision Architecture"
+                width={140}
+                height={40}
+                className="sp-lb-brand-logo"
+                style={{ objectFit: 'contain', height: 'auto', maxHeight: '32px' }}
+                priority
+              />
             </div>
 
             <button
@@ -1254,6 +1258,12 @@ export default function SpecialityPage({
           background-color: #8B2635;
           border-radius: 1px;
         }
+        .sp-lb-brand-logo {
+          display: block;
+          width: auto;
+          max-height: 32px;
+          opacity: 0.92;
+        }
 
         .sp-lb-close {
           display: flex;
@@ -1622,6 +1632,19 @@ export default function SpecialityPage({
             position: absolute;
             right: 1.25rem;
             bottom: 2.2rem;
+          }
+          /* Mobile lightbox: show only project name */
+          .sp-lb-project-cat {
+            display: none;
+          }
+          .sp-lb-footer-right {
+            display: none;
+          }
+          .sp-lb-accent-bar {
+            display: none;
+          }
+          .sp-lb-brand-logo {
+            max-height: 24px !important;
           }
         }
       `}} />

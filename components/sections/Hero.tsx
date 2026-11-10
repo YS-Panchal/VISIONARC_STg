@@ -1430,26 +1430,40 @@ export default function Hero() {
             }
             .hero-ctas {
               margin-bottom: 0;
+              flex-direction: row;
+              flex-wrap: nowrap;
+              gap: 0.6rem;
+              width: 100%;
+            }
+            .hero-cta-primary,
+            .hero-cta-secondary {
+              flex: 1 1 0;
+              justify-content: center;
+              font-size: clamp(0.7rem, 2.8vw, 0.85rem);
+              padding: 0.75rem 0.6rem;
+              white-space: nowrap;
             }
             .hero-stats-bar {
               margin-top: auto;
             }
             .hero-stats-inner {
-              flex-wrap: wrap;
-              gap: 1.2rem 0;
+              flex-wrap: nowrap;
+              gap: 0;
+              justify-content: space-between;
             }
             .hero-stat-item {
-              flex: 0 0 50%;
-              padding: 0.5rem;
+              flex: 1 1 0;
+              padding: 0.4rem 0.2rem;
+              text-align: center;
             }
             .hero-stat-item:not(:last-child)::after {
               display: none;
             }
             .hero-va-stat-number {
-              font-size: clamp(1.8rem, 6vw, 2.4rem) !important;
+              font-size: clamp(1.4rem, 5.5vw, 2rem) !important;
             }
             .hero-stat-label {
-              font-size: clamp(0.55rem, 2vw, 0.68rem);
+              font-size: clamp(0.48rem, 1.8vw, 0.6rem);
             }
             .hero-logo-container {
               z-index: 15;

@@ -146,6 +146,10 @@ export default function Speciality() {
               max-width: 80% !important;
               font-size: 4vw !important;
             }
+            #animated.centered {
+              font-size: clamp(2rem, 10vw, 3.2rem) !important;
+              word-spacing: 100vw;
+            }
           }
         `
       }} />

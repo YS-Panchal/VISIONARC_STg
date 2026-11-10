@@ -61,10 +61,6 @@ export default function Footer() {
                   <a href="tel:+919687688373" className="footer-text footer-contact-link" style={{ textDecoration: 'none', color: 'inherit', whiteSpace: 'nowrap' }}>
                     +91 96876 88373
                   </a>
-                  <span className="footer-contact-divider" style={{ opacity: 0.4, color: 'var(--charcoal-blue)' }}>•</span>
-                  <a href="tel:+917359219598" className="footer-text footer-contact-link" style={{ textDecoration: 'none', color: 'inherit', whiteSpace: 'nowrap' }}>
-                    +91 73592 19598
-                  </a>
                 </div>
               </div>
             </div>
