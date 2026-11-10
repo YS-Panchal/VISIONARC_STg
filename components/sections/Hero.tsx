@@ -79,7 +79,7 @@ const panelsConfig: PanelConfig[] = [
     href: '/renovation',
     transitionTitle: 'Renovation & Planning',
     images: [
-      '/images/Projects/PROJECTS WEBP/Renovation & Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-02.webp',
+      '/images/Projects/PROJECTS WEBP/Renovation and Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-02.webp',
     ],
     restOffset: 18,
     breathAmp: 5,

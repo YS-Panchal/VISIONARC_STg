@@ -32,7 +32,7 @@ const worksData = [
     id: '_04',
     title: 'Renovation and Planning',
     tags: ['Modern Transformation', 'Heritage Preservation', 'Spatial Refinement'],
-    image: '/images/Projects/PROJECTS WEBP/Renovation & Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-02.webp',
+    image: '/images/Projects/PROJECTS WEBP/Renovation and Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-02.webp',
     href: '/renovation',
   }
 ];

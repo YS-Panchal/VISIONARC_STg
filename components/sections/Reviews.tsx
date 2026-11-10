@@ -33,7 +33,7 @@ const reviewsData: ReviewItem[] = [
     location: 'Sterling City, Bopal, Ahmedabad',
     projectHref: '/renovation#mr-suresh-chauhan-private-residence',
     transitionTitle: 'Renovation & Planning',
-    image: '/images/Projects/PROJECTS WEBP/Renovation & Planning/MR SURESH CHAUHAN PRIVATE RESIDENCE/vision-architecture-suresh-chauhan-heritage-residence-renovation-ahmedabad-01.webp',
+    image: '/images/Projects/PROJECTS WEBP/Renovation and Planning/MR SURESH CHAUHAN PRIVATE RESIDENCE/vision-architecture-suresh-chauhan-heritage-residence-renovation-ahmedabad-01.webp',
     text: 'It was a great experience working with the Vision Architecture team. They beautifully blended modern design ideas with the emotions and memories we wanted our home to reflect. Their innovative concepts encouraged us to explore design possibilities we would not have considered otherwise. The final outcome is a perfect balance of functionality, aesthetics, and personal connection. We truly appreciate their creativity, professionalism, and dedication throughout the journey.',
   },
   {
@@ -42,7 +42,7 @@ const reviewsData: ReviewItem[] = [
     location: 'Ahmedabad, Gujarat',
     projectHref: '/renovation#mr-urvish-trivedi-private-residence',
     transitionTitle: 'Renovation & Planning',
-    image: '/images/Projects/PROJECTS WEBP/Renovation & Planning/MR URVISH TRIVEDI PRIVATE RESIDENCE/vision-architecture-urvish-trivedi-bungalow-renovation-ahmedabad-01.webp',
+    image: '/images/Projects/PROJECTS WEBP/Renovation and Planning/MR URVISH TRIVEDI PRIVATE RESIDENCE/vision-architecture-urvish-trivedi-bungalow-renovation-ahmedabad-01.webp',
     text: "We are extremely happy with the team's professional approach, courteous nature and the maturity with which they handled every situation throughout the project. Their patience, understanding and commitment made the entire experience smooth and truly satisfying.",
   },
 ];

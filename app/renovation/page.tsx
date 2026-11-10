@@ -19,16 +19,16 @@ export const metadata: Metadata = {
 
 const projects = [
   {
-    "coverImage": "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR SURESH CHAUHAN PRIVATE RESIDENCE/vision-architecture-suresh-chauhan-heritage-residence-renovation-ahmedabad-06.webp",
+    "coverImage": "/images/Projects/PROJECTS WEBP/Renovation and Planning/MR SURESH CHAUHAN PRIVATE RESIDENCE/vision-architecture-suresh-chauhan-heritage-residence-renovation-ahmedabad-06.webp",
     "images": [
-      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR SURESH CHAUHAN PRIVATE RESIDENCE/vision-architecture-suresh-chauhan-heritage-residence-renovation-ahmedabad-05.webp",
-      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR SURESH CHAUHAN PRIVATE RESIDENCE/vision-architecture-suresh-chauhan-heritage-residence-renovation-ahmedabad-06.webp",
-      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR SURESH CHAUHAN PRIVATE RESIDENCE/vision-architecture-suresh-chauhan-heritage-residence-renovation-ahmedabad-07.webp",
-      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR SURESH CHAUHAN PRIVATE RESIDENCE/vision-architecture-suresh-chauhan-heritage-residence-renovation-ahmedabad-08.webp",
-      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR SURESH CHAUHAN PRIVATE RESIDENCE/vision-architecture-suresh-chauhan-heritage-residence-renovation-ahmedabad-01.webp",
-      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR SURESH CHAUHAN PRIVATE RESIDENCE/vision-architecture-suresh-chauhan-heritage-residence-renovation-ahmedabad-02.webp",
-      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR SURESH CHAUHAN PRIVATE RESIDENCE/vision-architecture-suresh-chauhan-heritage-residence-renovation-ahmedabad-03.webp",
-      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR SURESH CHAUHAN PRIVATE RESIDENCE/vision-architecture-suresh-chauhan-heritage-residence-renovation-ahmedabad-04.webp"
+      "/images/Projects/PROJECTS WEBP/Renovation and Planning/MR SURESH CHAUHAN PRIVATE RESIDENCE/vision-architecture-suresh-chauhan-heritage-residence-renovation-ahmedabad-05.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation and Planning/MR SURESH CHAUHAN PRIVATE RESIDENCE/vision-architecture-suresh-chauhan-heritage-residence-renovation-ahmedabad-06.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation and Planning/MR SURESH CHAUHAN PRIVATE RESIDENCE/vision-architecture-suresh-chauhan-heritage-residence-renovation-ahmedabad-07.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation and Planning/MR SURESH CHAUHAN PRIVATE RESIDENCE/vision-architecture-suresh-chauhan-heritage-residence-renovation-ahmedabad-08.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation and Planning/MR SURESH CHAUHAN PRIVATE RESIDENCE/vision-architecture-suresh-chauhan-heritage-residence-renovation-ahmedabad-01.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation and Planning/MR SURESH CHAUHAN PRIVATE RESIDENCE/vision-architecture-suresh-chauhan-heritage-residence-renovation-ahmedabad-02.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation and Planning/MR SURESH CHAUHAN PRIVATE RESIDENCE/vision-architecture-suresh-chauhan-heritage-residence-renovation-ahmedabad-03.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation and Planning/MR SURESH CHAUHAN PRIVATE RESIDENCE/vision-architecture-suresh-chauhan-heritage-residence-renovation-ahmedabad-04.webp"
     ],
     "alt": "MR. SURESH CHAUHAN PRIVATE RESIDENCE",
     "title": "MR. SURESH CHAUHAN PRIVATE RESIDENCE",
@@ -41,20 +41,20 @@ const projects = [
     ]
   },
   {
-    "coverImage": "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR URVISH TRIVEDI PRIVATE RESIDENCE/vision-architecture-urvish-trivedi-bungalow-renovation-ahmedabad-06.webp",
+    "coverImage": "/images/Projects/PROJECTS WEBP/Renovation and Planning/MR URVISH TRIVEDI PRIVATE RESIDENCE/vision-architecture-urvish-trivedi-bungalow-renovation-ahmedabad-06.webp",
     "images": [
-      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR URVISH TRIVEDI PRIVATE RESIDENCE/vision-architecture-urvish-trivedi-bungalow-renovation-ahmedabad-01.webp",
-      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR URVISH TRIVEDI PRIVATE RESIDENCE/vision-architecture-urvish-trivedi-bungalow-renovation-ahmedabad-02.webp",
-      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR URVISH TRIVEDI PRIVATE RESIDENCE/vision-architecture-urvish-trivedi-bungalow-renovation-ahmedabad-03.webp",
-      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR URVISH TRIVEDI PRIVATE RESIDENCE/vision-architecture-urvish-trivedi-bungalow-renovation-ahmedabad-04.webp",
-      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR URVISH TRIVEDI PRIVATE RESIDENCE/vision-architecture-urvish-trivedi-bungalow-renovation-ahmedabad-05.webp",
-      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR URVISH TRIVEDI PRIVATE RESIDENCE/vision-architecture-urvish-trivedi-bungalow-renovation-ahmedabad-06.webp",
-      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR URVISH TRIVEDI PRIVATE RESIDENCE/vision-architecture-urvish-trivedi-bungalow-renovation-ahmedabad-07.webp",
-      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR URVISH TRIVEDI PRIVATE RESIDENCE/vision-architecture-urvish-trivedi-bungalow-renovation-ahmedabad-08.webp",
-      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR URVISH TRIVEDI PRIVATE RESIDENCE/vision-architecture-urvish-trivedi-bungalow-renovation-ahmedabad-09.webp",
-      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR URVISH TRIVEDI PRIVATE RESIDENCE/vision-architecture-urvish-trivedi-bungalow-renovation-ahmedabad-10.webp",
-      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR URVISH TRIVEDI PRIVATE RESIDENCE/vision-architecture-urvish-trivedi-bungalow-renovation-ahmedabad-11.webp",
-      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR URVISH TRIVEDI PRIVATE RESIDENCE/vision-architecture-urvish-trivedi-bungalow-renovation-ahmedabad-12.webp"
+      "/images/Projects/PROJECTS WEBP/Renovation and Planning/MR URVISH TRIVEDI PRIVATE RESIDENCE/vision-architecture-urvish-trivedi-bungalow-renovation-ahmedabad-01.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation and Planning/MR URVISH TRIVEDI PRIVATE RESIDENCE/vision-architecture-urvish-trivedi-bungalow-renovation-ahmedabad-02.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation and Planning/MR URVISH TRIVEDI PRIVATE RESIDENCE/vision-architecture-urvish-trivedi-bungalow-renovation-ahmedabad-03.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation and Planning/MR URVISH TRIVEDI PRIVATE RESIDENCE/vision-architecture-urvish-trivedi-bungalow-renovation-ahmedabad-04.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation and Planning/MR URVISH TRIVEDI PRIVATE RESIDENCE/vision-architecture-urvish-trivedi-bungalow-renovation-ahmedabad-05.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation and Planning/MR URVISH TRIVEDI PRIVATE RESIDENCE/vision-architecture-urvish-trivedi-bungalow-renovation-ahmedabad-06.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation and Planning/MR URVISH TRIVEDI PRIVATE RESIDENCE/vision-architecture-urvish-trivedi-bungalow-renovation-ahmedabad-07.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation and Planning/MR URVISH TRIVEDI PRIVATE RESIDENCE/vision-architecture-urvish-trivedi-bungalow-renovation-ahmedabad-08.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation and Planning/MR URVISH TRIVEDI PRIVATE RESIDENCE/vision-architecture-urvish-trivedi-bungalow-renovation-ahmedabad-09.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation and Planning/MR URVISH TRIVEDI PRIVATE RESIDENCE/vision-architecture-urvish-trivedi-bungalow-renovation-ahmedabad-10.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation and Planning/MR URVISH TRIVEDI PRIVATE RESIDENCE/vision-architecture-urvish-trivedi-bungalow-renovation-ahmedabad-11.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation and Planning/MR URVISH TRIVEDI PRIVATE RESIDENCE/vision-architecture-urvish-trivedi-bungalow-renovation-ahmedabad-12.webp"
     ],
     "alt": "MR. URVISH TRIVEDI PRIVATE RESIDENCE",
     "title": "MR. URVISH TRIVEDI PRIVATE RESIDENCE",
@@ -67,20 +67,20 @@ const projects = [
     ]
   },
   {
-    "coverImage": "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-12.webp",
+    "coverImage": "/images/Projects/PROJECTS WEBP/Renovation and Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-12.webp",
     "images": [
-      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-01.webp",
-      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-02.webp",
-      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-03.webp",
-      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-04.webp",
-      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-05.webp",
-      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-06.webp",
-      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-07.webp",
-      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-08.webp",
-      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-09.webp",
-      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-10.webp",
-      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-11.webp",
-      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-12.webp"
+      "/images/Projects/PROJECTS WEBP/Renovation and Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-01.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation and Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-02.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation and Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-03.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation and Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-04.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation and Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-05.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation and Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-06.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation and Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-07.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation and Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-08.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation and Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-09.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation and Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-10.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation and Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-11.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation and Planning/MR MITUL SHAH PRIVATE RESIDENCE/vision-architecture-mitul-shah-residence-renovation-ahmedabad-12.webp"
     ],
     "alt": "MR. MITUL SHAH PRIVATE RESIDENCE",
     "title": "MR. MITUL SHAH PRIVATE RESIDENCE",
@@ -94,9 +94,9 @@ const projects = [
   },
   {
     "images": [
-      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR ANIL CHAUHAN PRIVATE RESIDENCE/vision-architecture-anil-chauhan-residence-renovation-ahmedabad-01.webp",
-      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR ANIL CHAUHAN PRIVATE RESIDENCE/vision-architecture-anil-chauhan-residence-renovation-ahmedabad-02.webp",
-      "/images/Projects/PROJECTS WEBP/Renovation & Planning/MR ANIL CHAUHAN PRIVATE RESIDENCE/vision-architecture-anil-chauhan-residence-renovation-ahmedabad-03.webp"
+      "/images/Projects/PROJECTS WEBP/Renovation and Planning/MR ANIL CHAUHAN PRIVATE RESIDENCE/vision-architecture-anil-chauhan-residence-renovation-ahmedabad-01.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation and Planning/MR ANIL CHAUHAN PRIVATE RESIDENCE/vision-architecture-anil-chauhan-residence-renovation-ahmedabad-02.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation and Planning/MR ANIL CHAUHAN PRIVATE RESIDENCE/vision-architecture-anil-chauhan-residence-renovation-ahmedabad-03.webp"
     ],
     "alt": "MR. ANIL CHAUHAN PRIVATE RESIDENCE",
     "title": "MR. ANIL CHAUHAN PRIVATE RESIDENCE",
@@ -110,10 +110,10 @@ const projects = [
   },
   {
     "images": [
-      "/images/Projects/PROJECTS WEBP/Renovation & Planning/SHANKAR PRAJAPATI PRIVATE RESIDENCE/vision-architecture-shankar-prajapati-de-elegante-villa-renovation-ahmedabad-01.webp",
-      "/images/Projects/PROJECTS WEBP/Renovation & Planning/SHANKAR PRAJAPATI PRIVATE RESIDENCE/vision-architecture-shankar-prajapati-de-elegante-villa-renovation-ahmedabad-02.webp",
-      "/images/Projects/PROJECTS WEBP/Renovation & Planning/SHANKAR PRAJAPATI PRIVATE RESIDENCE/vision-architecture-shankar-prajapati-de-elegante-villa-renovation-ahmedabad-03.webp",
-      "/images/Projects/PROJECTS WEBP/Renovation & Planning/SHANKAR PRAJAPATI PRIVATE RESIDENCE/vision-architecture-shankar-prajapati-de-elegante-villa-renovation-ahmedabad-04.webp"
+      "/images/Projects/PROJECTS WEBP/Renovation and Planning/SHANKAR PRAJAPATI PRIVATE RESIDENCE/vision-architecture-shankar-prajapati-de-elegante-villa-renovation-ahmedabad-01.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation and Planning/SHANKAR PRAJAPATI PRIVATE RESIDENCE/vision-architecture-shankar-prajapati-de-elegante-villa-renovation-ahmedabad-02.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation and Planning/SHANKAR PRAJAPATI PRIVATE RESIDENCE/vision-architecture-shankar-prajapati-de-elegante-villa-renovation-ahmedabad-03.webp",
+      "/images/Projects/PROJECTS WEBP/Renovation and Planning/SHANKAR PRAJAPATI PRIVATE RESIDENCE/vision-architecture-shankar-prajapati-de-elegante-villa-renovation-ahmedabad-04.webp"
     ],
     "alt": "SHANKAR PRAJAPATI PRIVATE RESIDENCE",
     "title": "SHANKAR PRAJAPATI PRIVATE RESIDENCE",
@@ -132,7 +132,7 @@ export default function Renovation() {
     <SpecialityPage
       heroTitle="Renovation & Planning"
       heroSubtitle="Breathing new life into existing spaces through thoughtful restructuring, modern aesthetic upgrades, and functional optimization."
-      heroBackground="/images/Projects/PROJECTS WEBP/Renovation & Planning/MR SURESH CHAUHAN PRIVATE RESIDENCE/vision-architecture-suresh-chauhan-heritage-residence-renovation-ahmedabad-01.webp"
+      heroBackground="/images/Projects/PROJECTS WEBP/Renovation and Planning/MR SURESH CHAUHAN PRIVATE RESIDENCE/vision-architecture-suresh-chauhan-heritage-residence-renovation-ahmedabad-01.webp"
       introHeading="Transformative Space Renewal"
       introParagraphs={[
         "Our renovation projects focus on honoring existing architectural character while seamlessly infusing modern layout efficiencies, enhanced natural light, and contemporary finishes.",
