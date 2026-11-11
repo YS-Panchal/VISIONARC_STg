@@ -149,8 +149,30 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1200));
-      setIsSuccess(true);
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: 'ffffe7b6-8161-4c0a-bee0-0982d80668c6',
+          subject: `New Project Enquiry from ${formData.fullName} - Vision Architecture`,
+          from_name: 'Vision Architecture Website',
+          name: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          service: SERVICES.find((s) => s.value === formData.service)?.label || formData.service,
+          message: formData.message,
+        }),
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        setIsSuccess(true);
+      } else {
+        throw new Error(data.message || 'Submission failed');
+      }
     } catch {
       setErrors((prev) => ({
         ...prev,

@@ -80,7 +80,7 @@ export default function RootLayout({
       <head>
         {/* Google Tag Manager / Google Analytics */}
         <Script
-          src="https://www.googletagmanager.com/gtm.js?id=GTM-5F5ND9F4"
+          src="https://www.googletagmanager.com/gtm.js?id=GTM-TDSR88R5"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
